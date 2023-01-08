@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddStudentComponent } from './add-student/add-student.component';
 import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home/home.component';
-import { ModifyStudentComponent } from './modify-student/modify-student.component';
 import { StudentsComponent } from './students/students.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { AuthenticationComponent } from '../pages/authentication/authentication.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
-    AddStudentComponent,
     CoursesComponent,
     HomeComponent,
-    ModifyStudentComponent,
-    StudentsComponent
+    StudentsComponent,
+    AuthenticationComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
@@ -23,10 +23,10 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports: [
     StudentsComponent,
-    AddStudentComponent,
     CoursesComponent,
     HomeComponent,
-    ModifyStudentComponent,
+    AuthenticationComponent,
+    UsersComponent
   ]
 })
 export class PagesModule { }

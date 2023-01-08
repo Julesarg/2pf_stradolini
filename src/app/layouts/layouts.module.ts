@@ -5,13 +5,15 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PagesModule } from '../pages/pages.module';
+import { CleanLayoutComponent } from './clean-layout/clean-layout.component';
 
 
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    CleanLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { PagesModule } from '../pages/pages.module';
     RouterModule
   ],
   exports: [
-    DashboardComponent
+    DashboardComponent,
+    CleanLayoutComponent
   ]
 })
 export class LayoutsModule { }

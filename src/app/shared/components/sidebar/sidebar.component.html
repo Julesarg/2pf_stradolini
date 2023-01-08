@@ -32,15 +32,17 @@
         <a>Not in Use</a>
       </li>
       <li>
-        <a>Users</a>
+        <a [routerLink]="['/users']" routerLinkActive="router-link-active">Users</a>
       </li>
     </ul>
 
   </div>
   <div class="logout-container">
-    <h4>Log Out</h4>
+    <h4><a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">Log Out</a></h4>
     <span>
-      <i class="fa-solid fa-right-from-bracket"></i>
+      <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </a>
     </span>
   </div>
 
