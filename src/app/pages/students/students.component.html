@@ -1,7 +1,6 @@
 <div class="button-container">
   <button (click)="addStudent()" mat-raised-button class="button-container_button" color="primary">Add Student</button>
 </div>
-
 <table mat-table [dataSource]="students" class=" mat-elevation-z8 table-container">
   <ng-container matColumnDef="id">
     <th appFonts mat-header-cell *matHeaderCellDef class="table-container-column"> Id. </th>

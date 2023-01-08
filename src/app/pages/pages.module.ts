@@ -22,11 +22,11 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule
   ],
   exports: [
+    StudentsComponent,
     AddStudentComponent,
     CoursesComponent,
     HomeComponent,
     ModifyStudentComponent,
-    StudentsComponent
   ]
 })
 export class PagesModule { }
