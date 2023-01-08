@@ -1,0 +1,22 @@
+.footer-container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5vh;
+  width: 89vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
+  .fa-brands {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 22px;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+  .fa-solid {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 22px;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+  }
+}

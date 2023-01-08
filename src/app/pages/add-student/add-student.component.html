@@ -1,0 +1,55 @@
+<div mat-dialog-title>Adding Student</div>
+
+<form [formGroup]="registerForm" class="container text-center mt-4">
+
+  <div class="d-flex form-control-added fullname-container">
+    <div class="col d-flex flex-column">
+      <label for="name" class="form-label fullname-container_text">Nombre</label>
+      <input [formControl]="nameControl" type="text" class="form-control" id="name" />
+      <app-add-student-errors [control]="nameControl"></app-add-student-errors>
+    </div>
+
+    <div class="col d-flex flex-column">
+      <label for="lastname" class="form-label  fullname-container_text_right">Apellido</label>
+      <input [formControl]="lastNameControl" type="text" class="form-control input-right" id="lastname" />
+      <app-add-student-errors [control]="lastNameControl"></app-add-student-errors>
+    </div>
+  </div>
+
+  <div class="d-flex form-control-added">
+    <div class="col d-flex flex-column justify-content-start align-items-start">
+      <label for="email" class="form-label">Correo Electronico</label>
+      <input [formControl]="emailControl" type="email" class="form-control" id="email" />
+      <app-add-student-errors [control]="emailControl"></app-add-student-errors>
+    </div>
+  </div>
+
+  <div class="d-flex form-control-added">
+    <div class="col d-flex flex-column justify-content-start align-items-start">
+      <label for="gender" class="form-label">Gender</label>
+      <mat-form-field appearance="fill">
+        <mat-label class="gender-select">Select an option</mat-label>
+        <mat-select [formControl]="genderControl">
+          <mat-option class="gender-options">None</mat-option>
+          <mat-option class="gender-options" value="M">Male</mat-option>
+          <mat-option class="gender-options" value="F">Female</mat-option>
+          <mat-option class="gender-options" value="Other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <app-add-student-errors [control]="genderControl"></app-add-student-errors>
+    </div>
+  </div>
+
+  <!-- <div class="d-flex form-control-added">
+    <div class="col d-flex flex-column justify-content-start align-items-start">
+      <label for="profilepic" class="form-label">Add Image</label>
+      <input [formControl]="profilepicControl" type="file" class="form-control-file" id="profilepic">
+      <app-add-student-errors [control]="profilepicControl"></app-add-student-errors>
+    </div>
+  </div> -->
+  <div class="d-flex form-control-added button-container">
+    <button [mat-dialog-close]="registerForm.value" [disabled]="registerForm.invalid" type="submit"
+      class="btn btn-primary button-confirm">Confirm</button>
+    <button (click)="closeWindow()" type="submit" class="btn btn-primary button-cancel">Cancel</button>
+  </div>
+</form>
