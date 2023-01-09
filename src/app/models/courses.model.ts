@@ -6,6 +6,7 @@ export class Course {
     public price: number,
     public modality: string,
     public inscriptions: string,
-    public details: boolean
+    public detailsIcon: boolean,
+    public detailsText: string
   ) { }
 }

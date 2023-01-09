@@ -7,6 +7,5 @@ export class Student {
     public gender: string,
     public edit: boolean,
     public deleteOption: boolean
-
   ) { }
 }

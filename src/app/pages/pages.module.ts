@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AuthenticationComponent } from '../pages/authentication/authentication.component';
 import { UsersComponent } from './users/users.component';
-import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { CourseDetailComponent } from './courses/course-detail/course-detail.com
     HomeComponent,
     StudentsComponent,
     AuthenticationComponent,
-    UsersComponent,
-    CourseDetailComponent
+    UsersComponent
   ],
   imports: [
     CommonModule,

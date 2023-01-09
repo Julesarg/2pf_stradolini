@@ -9,7 +9,7 @@ import { CleanLayoutComponent } from './layouts/clean-layout/clean-layout.compon
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { Error404Component } from './shared/errors/error404/error404.component';
 import { UsersComponent } from './pages/users/users.component';
-import { CourseDetailComponent } from './pages/courses/course-detail/course-detail.component';
+import { CourseDetailComponent } from './shared/dialogs-modals/course-detail/course-detail.component';
 
 const routes: Routes = [
   {

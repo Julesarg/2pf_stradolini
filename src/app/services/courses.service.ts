@@ -1,14 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Course } from '../models/courses.model';
+import { CoursesComponent } from '../pages/courses/courses.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoursesService {
-
-  constructor() { }
-
-  getCourses(id: string | number) {
-    return new Course(Number(id), 'Curso1', '10 weeks', 4000, 'Remote', 'Open', true);
-  }
-}
+export class CoursesService { }
