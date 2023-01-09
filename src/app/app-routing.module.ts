@@ -9,6 +9,7 @@ import { CleanLayoutComponent } from './layouts/clean-layout/clean-layout.compon
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { Error404Component } from './shared/errors/error404/error404.component';
 import { UsersComponent } from './pages/users/users.component';
+import { CourseDetailComponent } from './pages/courses/course-detail/course-detail.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'students', component: StudentsComponent },
       { path: 'home', component: HomeComponent },
       { path: 'courses', component: CoursesComponent },
+      { path: 'courses/:id', component: CourseDetailComponent },
       { path: 'users', component: UsersComponent }
     ]
   },

@@ -1,0 +1,28 @@
+.button-container {
+  width: 100%;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}
+.table-container {
+  .table-container-column {
+    width: 10vw;
+    text-align: center;
+    font-weight: bold;
+  }
+  .table-container-row {
+    text-align: center;
+    width: 25vw;
+    .deleteButton {
+      width: 2vw;
+      height: 2vw;
+      --mdc-fab-container-color: transparent;
+      .mat-icon {
+        height: auto;
+        color: rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+}
