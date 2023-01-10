@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AuthenticationComponent } from '../pages/authentication/authentication.component';
 import { UsersComponent } from './users/users.component';
+import { InscriptionsComponent } from './inscriptions/inscriptions.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UsersComponent } from './users/users.component';
     HomeComponent,
     StudentsComponent,
     AuthenticationComponent,
-    UsersComponent
+    UsersComponent,
+    InscriptionsComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { UsersComponent } from './users/users.component';
     CoursesComponent,
     HomeComponent,
     AuthenticationComponent,
-    UsersComponent
+    UsersComponent,
+    InscriptionsComponent
   ]
 })
 export class PagesModule { }

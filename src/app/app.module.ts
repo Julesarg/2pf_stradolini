@@ -19,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     PagesModule,
     SharedModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

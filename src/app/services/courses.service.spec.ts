@@ -1,16 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
 
-import { CoursesService } from './courses.service';
-
-describe('CoursesService', () => {
-  let service: CoursesService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(CoursesService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+@Injectable({
+  providedIn: 'root'
+})
+export class CoursesService {
+  constructor() { }
+}

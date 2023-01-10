@@ -10,6 +10,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { Error404Component } from './shared/errors/error404/error404.component';
 import { UsersComponent } from './pages/users/users.component';
 import { CourseDetailComponent } from './shared/dialogs-modals/course-detail/course-detail.component';
+import { InscriptionsComponent } from './pages/inscriptions/inscriptions.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'courses', component: CoursesComponent },
       { path: 'courses/:id', component: CourseDetailComponent },
-      { path: 'users', component: UsersComponent }
+      { path: 'users', component: UsersComponent },
+      { path: 'inscriptions', component: InscriptionsComponent }
     ]
   },
   {
