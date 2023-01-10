@@ -1,0 +1,62 @@
+.form-label {
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.mt-4 {
+  margin-top: 0 !important;
+  .fullname-container {
+    .fullname-container_text {
+      text-align: start;
+    }
+    input {
+      width: 95%;
+    }
+    .fullname-container_text_right {
+      text-align: start;
+      margin-left: 5%;
+    }
+    .input-right {
+      margin-left: 5%;
+    }
+  }
+  .form-control-added {
+    .col {
+      width: 95%;
+      .form-control {
+        margin-bottom: 5%;
+      }
+    }
+  }
+}
+//gender
+.gender-select {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.5);
+}
+.gender-options {
+  font-size: 0.8em;
+}
+
+//button
+.button-container {
+  width: 100%;
+  justify-content: end;
+  margin-bottom: 2%;
+  .button-confirm {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    margin-right: 1%;
+    transition: 0.5s;
+  }
+  .button-cancel {
+    cursor: pointer !important;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    --bs-btn-color: black;
+    --bs-btn-bg: none;
+    --bs-btn-border-color: none;
+    --bs-btn-hover-bg: rgb(211, 0, 11);
+    transition: 0.5s;
+  }
+}

@@ -19,7 +19,8 @@ import { CleanLayoutComponent } from './clean-layout/clean-layout.component';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    PagesModule
   ],
   exports: [
     DashboardComponent,

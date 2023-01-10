@@ -1,3 +1,17 @@
-<div>
-  asdasdasdasd
-</div>
+<h2 mat-dialog-title>{{data.name}}</h2>
+<mat-dialog-content class="mat-typography">
+  <h1>About this Course</h1>
+  <img src="{{data.img}}" />
+  <h2>Course Price ${{data.price}}</h2>
+  <div>
+    <h2 *ngIf="data.inscriptions === 'Open'">Is this avaible now? : Yes, inscriptions are {{data.inscriptions}}</h2>
+    <h2 *ngIf="data.inscriptions === 'Closed'">Is this avaible now? : No, inscriptions are {{data.inscriptions}}</h2>
+  </div>
+  <div>
+    <h2>What will you learn in this course?</h2>
+    <h4>{{data.detailsText}}</h4>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>
