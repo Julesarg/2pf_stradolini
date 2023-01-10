@@ -26,18 +26,8 @@ export class CoursesComponent implements OnInit {
     this.courses$ = this.coursesService.courses$
   }
 
-  viewCourseDetail() {
-    this.coursesService.viewCourseDetail({
-      id: 0,
-      name: "",
-      duration: "",
-      price: 0,
-      modality: "",
-      inscriptions: "",
-      detailsIcon: true,
-      detailsText: "",
-      img: ""
-    })
+  viewCourseDetail(course: Course) {
+    this.coursesService.viewCourseDetail(course)
   }
 }
 
