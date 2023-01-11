@@ -1,14 +1,16 @@
-<p>ERROR 404</p>
+<div class="error404-container">
+  <h1>ERROR 404</h1>
 
-<div>
-  <button>
-    <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">
-      Back to login
-    </a>
-  </button>
-  <button>
-    <a [routerLink]="['/home']" routerLinkActive="router-link-active">
-      Back to Home
-    </a>
-  </button>
+  <div>
+    <button mat-raised-button color="primary">
+      <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active">
+        Back to login
+      </a>
+    </button>
+    <button mat-raised-button color="primary">
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+        Back to Home
+      </a>
+    </button>
+  </div>
 </div>

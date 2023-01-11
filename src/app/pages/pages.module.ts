@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthenticationComponent } from '../pages/authentication/authentication.component';
 import { UsersComponent } from './users/users.component';
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InscriptionsComponent } from './inscriptions/inscriptions.component';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     StudentsComponent,
