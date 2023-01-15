@@ -10,7 +10,6 @@ export class AuthenticationGuard implements CanActivate {
 
   constructor(
     private router: Router) {
-
   }
 
   canActivate(
