@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Student } from 'src/app/models/students.model';
+import { Student } from 'src/app/core/models/students.model';
 
 @Component({
   selector: 'app-add-student',

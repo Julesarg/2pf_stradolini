@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Course } from 'src/app/models/courses.model';
+import { Course } from 'src/app/core/models/courses.model';
 
 
 @Component({

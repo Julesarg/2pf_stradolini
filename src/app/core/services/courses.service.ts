@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Course } from '../models/courses.model';
-import { CourseDetailComponent } from '../shared/dialogs-modals/course-detail/course-detail.component';
+import { CourseDetailComponent } from '../../shared/dialogs-modals/course-detail/course-detail.component';
 
 @Injectable({
   providedIn: 'root'
