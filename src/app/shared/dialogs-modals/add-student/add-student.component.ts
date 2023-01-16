@@ -1,5 +1,4 @@
-import { Component, Inject } from '@angular/core';
-import { AddStudentErrorsComponent } from '../../errors/add-student-errors/add-student-errors.component';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {
   FormControl,
@@ -7,8 +6,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Student } from 'src/app/core/models/students.model';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-student',

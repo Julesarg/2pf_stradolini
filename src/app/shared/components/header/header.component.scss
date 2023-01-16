@@ -28,6 +28,10 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 1em;
         color: rgba(0, 0, 0, 0.4);
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.9);
+        }
       }
       .fa-regular {
         font-size: 25px;

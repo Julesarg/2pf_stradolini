@@ -1,15 +1,44 @@
-.login-container {
+.loginsite-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  div {
+  button {
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    a {
+      color: black;
+      font-size: 1em;
+      text-decoration: none;
+      padding: 5px;
+    }
+  }
+  .loginsite-container_login {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    .example-container {
+      width: 35vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .example-container_field {
+        width: 300px;
+      }
+    }
+  }
+  .loginsite-container_home {
+    display: flex;
+    width: 10vw;
+    justify-content: space-around;
     button {
       height: auto;
-      margin-left: 1%;
-      margin-right: 1%;
       justify-content: center;
       align-items: center;
       a {
