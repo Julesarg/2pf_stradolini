@@ -7,16 +7,23 @@ import { CoursesComponent } from '../../pages/courses/courses.component';
 import { UsersComponent } from '../../pages/users/users.component';
 import { InscriptionsComponent } from '../../pages/inscriptions/inscriptions.component';
 import { AuthenticationGuard } from 'src/app/core/guards/authentication.guard';
+import { AdminGuard } from 'src/app/core/guards/admin.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'students', component: StudentsComponent },
+  {
+    path: 'students', component: StudentsComponent,
+    canActivate: [AuthenticationGuard]
+  },
   { path: 'courses', component: CoursesComponent },
   {
     path: 'users', component: UsersComponent,
-    canActivate: [AuthenticationGuard],
+    canActivate: [AdminGuard]
   },
-  { path: 'inscriptions', component: InscriptionsComponent },
+  {
+    path: 'inscriptions', component: InscriptionsComponent,
+    canActivate: [AuthenticationGuard]
+  },
 ]
 
 @NgModule({

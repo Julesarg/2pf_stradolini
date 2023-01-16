@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationGuard implements CanActivate {
-
+export class AdminGuard implements CanActivate {
 
   constructor(
     private router: Router) {
@@ -15,6 +14,8 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.router.navigate(['login']).then(() => { alert('Por favor inicie sesion para ver el contenido'); return false });
+    return this.router.navigate(['login']).then(() => { alert('Por favor inicie sesion de administrador para acceder a estos servicios'); return false });
   }
 }
+
+

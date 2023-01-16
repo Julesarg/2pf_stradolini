@@ -4,12 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 const routes: Routes = [
-  { path: '', component: AuthenticationComponent },
-  {
-    path: 'main', component: DashboardComponent,
-    loadChildren: () => import('./layouts/dashboard/dashboard.module').then(module => module.DashboardModule),
-
-  }
+  { path: 'login', component: AuthenticationComponent },
+  { path: '', component: DashboardComponent, loadChildren: () => import('./layouts/dashboard/dashboard.module').then(module => module.DashboardModule) }
 ]
 
 @NgModule({
