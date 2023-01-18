@@ -30,7 +30,10 @@ export class StudentsService {
     this.httpClient.delete(`https://63c49434f0028bf85faa17cd.mockapi.io/students/${student.id}`).subscribe(_ => {
       let newStudentList = this.students.getValue().filter(data => data.id !== student.id);
       this.students.next(newStudentList)
-    }
+    },
+      _ => {
+        console.warn('Error message')
+      }
     )
   }
 
@@ -42,24 +45,30 @@ export class StudentsService {
         _ => {
           let newStudentList = this.students.getValue().map(data => data.id === student.id ? { ...data, ..._ } : data);
           this.students.next(newStudentList)
+        },
+        _ => {
+          console.warn('Error message')
         }
       )
     })
   }
 
-  //agregar estudiante
-  addStudent(student: Student) {
-    let dialog = this.dialogService.open(AddStudentComponent, { data: student })
-    dialog.afterClosed().subscribe((value) => {
-      this.httpClient.post(`https://63c49434f0028bf85faa17cd.mockapi.io/students`, value).subscribe(
-        _ => {
-          let newStudent = this.students.getValue();
-          if (value) {
-            newStudent.push(student);
-            this.students.next(newStudent)
-          }
-        }
-      )
-    })
-  }
+  // //agregar estudiante
+  //   addStudent(student: Student) {
+  //     let dialog = this.dialogService.open(AddStudentComponent, { data: student })
+  //     dialog.afterClosed().subscribe((value) => {
+  //       this.httpClient.post('https://63c49434f0028bf85faa17cd.mockapi.io/students', value).subscribe(_ => {
+  //         let newStudent = this.students.getValue();
+  //         if (value) {
+  //           newStudent.push(student);
+  //           this.students.next(newStudent)
+  //         }
+  //         else {
+  //           let newStudent = this.students.getValue();
+  //           this.students.next(newStudent)
+  //         }
+  //       }
+  //       )
+  //     })
+  //   }
 }

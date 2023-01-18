@@ -1,5 +1,5 @@
 <div class="button-container">
-  <button (click)="clickNewStudent(element)" mat-raised-button class="button-container_button" color="primary">Add
+  <button mat-raised-button class="button-container_button" color="primary">Add
     Student</button>
 </div>
 <table mat-table [dataSource]="student$" class=" mat-elevation-z8 table-container">
@@ -49,3 +49,8 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+
+
+<!-- 
+FALTA
+(click)="clickNewStudent(element)" -->

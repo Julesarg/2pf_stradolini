@@ -34,10 +34,10 @@ export class StudentsComponent implements OnInit {
   }
 
 
-  //agregar estudiante
-  clickNewStudent(student: Student) {
-    this.studentsService.addStudent(student)
-  }
+  // //agregar estudiante
+  // clickNewStudent(student: Student) {
+  //   this.studentsService.addStudent(student)
+  // }
 
   //borrar estudiante
   clickDeleteStudent(student: Student) {
