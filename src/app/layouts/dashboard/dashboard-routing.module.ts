@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'students', component: StudentsComponent,
-    canActivate: [AuthenticationGuard]
+    // canActivate: [AuthenticationGuard]
   },
   { path: 'courses', component: CoursesComponent },
   {
