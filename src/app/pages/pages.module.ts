@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
 import { StudentsComponent } from './students/students.component';
 import { UsersComponent } from './users/users.component';
+import { StudentsModule } from './students/students.module';
+import { CoursesModule } from './courses/courses.module';
 
 
 
@@ -17,10 +19,8 @@ import { UsersComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AuthenticationComponent,
-    CoursesComponent,
     HomeComponent,
     InscriptionsComponent,
-    StudentsComponent,
     UsersComponent
   ],
   imports: [
@@ -33,10 +33,8 @@ import { UsersComponent } from './users/users.component';
   exports: [
     RouterModule,
     AuthenticationComponent,
-    CoursesComponent,
     HomeComponent,
     InscriptionsComponent,
-    StudentsComponent,
     UsersComponent
   ]
 })
