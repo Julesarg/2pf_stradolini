@@ -12,6 +12,7 @@ export class CoursesService {
 
   public courses$: Observable<Course[]>;
   private courses = new BehaviorSubject<Course[]>([]);
+  private readonly baseURL = 'https://63c49434f0028bf85faa17cd.mockapi.io'
 
   constructor(private readonly dialogService: MatDialog, private httpClient: HttpClient) {
     this.courses$ = this.courses.asObservable();
@@ -21,8 +22,7 @@ export class CoursesService {
   }
 
   getCoursesFromAPI(): Observable<Course[]> {
-
-    return this.httpClient.get<Course[]>('https://63c49434f0028bf85faa17cd.mockapi.io/courses');
+    return this.httpClient.get<Course[]>(`${this.baseURL}/courses`)
   }
 
   viewCourseDetail(course: Course) {

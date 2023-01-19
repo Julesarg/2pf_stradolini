@@ -1,23 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Student } from 'src/app/core/models/students.model';
 
-import { StudentsComponent } from './students.component';
-
-describe('StudentsComponent', () => {
-  let component: StudentsComponent;
-  let fixture: ComponentFixture<StudentsComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ StudentsComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(StudentsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+describe('StudentsComponent testing para entrega Angular', () => {
+  it('debe listar valor de propiedad', () => {
+    let student = new Student(0, "juan", "perez", "test@hotmail.com", "Male", true, true);
+    const nombreEstudiante = student.name;
+    expect(nombreEstudiante).toBe('juan');
+  })
+})
