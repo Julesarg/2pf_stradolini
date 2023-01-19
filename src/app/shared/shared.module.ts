@@ -11,6 +11,7 @@ import { AddStudentComponent } from './dialogs-modals/add-student/add-student.co
 import { ModifyStudentComponent } from './dialogs-modals/modify-student/modify-student.component';
 import { RouterModule } from '@angular/router';
 import { CourseDetailComponent } from './dialogs-modals/course-detail/course-detail.component';
+import { StudentsModule } from '../pages/students/students.module';
 
 
 

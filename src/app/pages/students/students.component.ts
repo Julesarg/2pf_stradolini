@@ -21,7 +21,6 @@ export class StudentsComponent implements OnInit {
   public student$: Observable<Student[]>;
 
   displayedColumns = ['id', 'name', 'email', 'gender', 'edit', 'deleteOption']
-  dialogService: any;
   element: Student;
 
   constructor(
@@ -33,11 +32,10 @@ export class StudentsComponent implements OnInit {
     this.student$ = this.studentsService.students$
   }
 
-
-  // //agregar estudiante
-  // clickNewStudent(student: Student) {
-  //   this.studentsService.addStudent(student)
-  // }
+  //abrir modal
+  clickOpenDialog(student: Student) {
+    this.studentsService.openDialog(student)
+  }
 
   //borrar estudiante
   clickDeleteStudent(student: Student) {

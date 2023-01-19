@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {
   FormControl,
@@ -7,13 +7,23 @@ import {
 } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Student } from 'src/app/core/models/students.model';
+import { Observable } from 'rxjs';
+import { AddStudentService } from 'src/app/core/services/add-student.service';
 
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.scss'],
 })
-export class AddStudentComponent {
+export class AddStudentComponent implements OnInit {
+  public student$: Observable<Student[]>;
+  element: Student;
+
+
+  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private addStudentService: AddStudentService) {
+    dialog.disableClose = true;
+  }
 
   nameControl = new FormControl('', [
     Validators.required,
@@ -37,10 +47,12 @@ export class AddStudentComponent {
     gender: this.genderControl,
   });
 
+  ngOnInit(): void {
+    this.student$ = this.addStudentService.students$
+  }
 
-  //prevenir close
-  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>) {
-    dialog.disableClose = true;
+  clickAddStudent(student: Student) {
+    this.addStudentService.addStudent(student)
   }
 
   //close
