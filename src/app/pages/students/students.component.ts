@@ -42,4 +42,12 @@ export class StudentsComponent implements OnInit {
   clickEditStudent(student: Student) {
     this.studentsService.editStudent(student)
   }
+
+
+  clickAddStudent(student: Student) {
+    this.studentsService.addStudent(student)
+  }
+
+
+
 }

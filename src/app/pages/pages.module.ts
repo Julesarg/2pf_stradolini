@@ -4,21 +4,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { MaterialModuleModule } from 'src/app/core/modules/material-module.module';
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home/home.component';
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
-import { StudentsComponent } from './students/students.component';
 import { UsersComponent } from './users/users.component';
-import { StudentsModule } from './students/students.module';
-import { CoursesModule } from './courses/courses.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 
 
 
 @NgModule({
   declarations: [
-    AuthenticationComponent,
     HomeComponent,
     InscriptionsComponent,
     UsersComponent
@@ -29,10 +24,10 @@ import { CoursesModule } from './courses/courses.module';
     ReactiveFormsModule,
     RouterModule,
     MaterialModuleModule,
+    AuthenticationModule
   ],
   exports: [
     RouterModule,
-    AuthenticationComponent,
     HomeComponent,
     InscriptionsComponent,
     UsersComponent

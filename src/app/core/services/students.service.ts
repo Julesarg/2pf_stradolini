@@ -81,4 +81,24 @@ export class StudentsService {
       data: student,
     });
   }
+
+  addStudent(student: Student) {
+    this.students$
+      .pipe(
+        take(1),
+        mergeMap((studentlist) =>
+          this.httpClient
+            .post<Student>(
+              'https://63c49434f0028bf85faa17cd.mockapi.io/students',
+              student
+            )
+            .pipe(
+              tap((addedStudent) =>
+                this.students.next([...studentlist, addedStudent])
+              )
+            )
+        ),
+      )
+      .subscribe()
+  }
 }

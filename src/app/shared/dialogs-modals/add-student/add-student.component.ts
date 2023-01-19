@@ -9,19 +9,19 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Student } from 'src/app/core/models/students.model';
 import { Observable } from 'rxjs';
-import { AddStudentService } from 'src/app/core/services/add-student.service';
+import { StudentsService } from 'src/app/core/services/students.service';
 
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
   styleUrls: ['./add-student.component.scss'],
 })
-export class AddStudentComponent implements OnInit {
+export class AddStudentComponent {
   public student$: Observable<Student[]>;
   element: Student;
 
 
-  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private addStudentService: AddStudentService) {
+  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private studentsService: StudentsService) {
     dialog.disableClose = true;
   }
 
@@ -47,12 +47,8 @@ export class AddStudentComponent implements OnInit {
     gender: this.genderControl,
   });
 
-  ngOnInit(): void {
-    this.student$ = this.addStudentService.students$
-  }
-
   clickAddStudent(student: Student) {
-    this.addStudentService.addStudent(student)
+    this.studentsService.addStudent(student)
   }
 
   //close
