@@ -8,7 +8,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { PagesModule } from '../../pages/pages.module';
 
 
-
 @NgModule({
   declarations: [
     DashboardComponent
@@ -19,11 +18,13 @@ import { PagesModule } from '../../pages/pages.module';
     SharedModule,
     ReactiveFormsModule,
     DashboardRoutingModule,
-    PagesModule
+    PagesModule,
   ],
   exports: [
     DashboardComponent,
     DashboardRoutingModule
+  ],
+  providers: [
   ]
 })
 export class DashboardModule { }

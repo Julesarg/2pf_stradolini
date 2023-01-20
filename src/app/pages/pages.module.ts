@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
 import { UsersComponent } from './users/users.component';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { UsersModule } from './users/users.module';
 
 
 
@@ -16,7 +17,6 @@ import { AuthenticationModule } from './authentication/authentication.module';
   declarations: [
     HomeComponent,
     InscriptionsComponent,
-    UsersComponent
   ],
   imports: [
     CommonModule,
@@ -24,13 +24,13 @@ import { AuthenticationModule } from './authentication/authentication.module';
     ReactiveFormsModule,
     RouterModule,
     MaterialModuleModule,
-    AuthenticationModule
+    AuthenticationModule,
+    UsersModule
   ],
   exports: [
     RouterModule,
     HomeComponent,
     InscriptionsComponent,
-    UsersComponent
   ]
 })
 export class PagesModule { }

@@ -9,8 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AuthenticationComponent {
   hide = true;
 
-  emailControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl = new FormControl('', [Validators.required, Validators.minLength(8), Validators.pattern('[a-zA-Z 0-9]*')])
+  emailControl = new FormControl('test@admin.com', [Validators.required, Validators.email]);
+  passwordControl = new FormControl('passwordadmin', [Validators.required, Validators.minLength(8), Validators.pattern('[a-zA-Z 0-9]*')])
 
   loginForm = new FormGroup({
     email: this.emailControl,
