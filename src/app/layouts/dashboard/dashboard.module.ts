@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { MaterialModuleModule } from 'src/app/core/modules/material-module.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { PagesModule } from '../../pages/pages.module';
+// import { AuthService } from '../../core/services/auth.service';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PagesModule } from '../../pages/pages.module';
     DashboardRoutingModule
   ],
   providers: [
+    // AuthService
   ]
 })
 export class DashboardModule { }

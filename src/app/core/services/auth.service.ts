@@ -1,12 +1,44 @@
-// import { HttpClient } from '@angular/common/http';
-// import { Injectable } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { Store } from '@ngrx/store';
-// import { Observable, catchError, map, mergeMap, of, tap } from 'rxjs';
-// import { AppState } from 'src/app/store/app.reducer';
-// import { setAuthenticatedUser, unsetAuthenticatedUser } from 'src/app/store/auth/auth.actions';
-// import { User } from '../models/user.model';
-// import { LoginSuccessful, SingleUserResponse } from './reqres.interfaces';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, map, mergeMap, of, tap } from 'rxjs';
+import { LoginSuccessful, SingleUserResponse } from '../models/reqres.interfaces';
+import { User } from '../models/users.model';
+import { SessionService } from './session.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  apiUrl = 'https://reqres.in/api';
+
+  constructor(
+    private readonly httpClient: HttpClient,
+    private readonly sessionService: SessionService
+  ) { }
+
+  login(data: { email: string; password: string }): Observable<User> {
+    return this.httpClient
+      .post<LoginSuccessful>(`${this.apiUrl}/login`, data)
+      .pipe(
+        tap((data) => localStorage.setItem('token', data.token)),
+        mergeMap(() =>
+          this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/7`)
+        ),
+        map(
+          ({ data }) =>
+            new User(
+              data.id,
+              data.email,
+              data.first_name,
+              data.last_name,
+              data.avatar
+            )
+        ),
+        tap((user) => this.sessionService.setUser(user))
+      );
+  }
+}
+
 
 // @Injectable({
 //   providedIn: 'root'

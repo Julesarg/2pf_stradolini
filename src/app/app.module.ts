@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardModule } from './layouts/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { DashboardModule } from './layouts/dashboard/dashboard.module';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

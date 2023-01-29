@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-import { AuthenticationComponent } from '../../pages/authentication/authentication.component';
+import { DashboardRoutingModule } from '../../layouts/dashboard/dashboard-routing.module';
 
 
 @NgModule({
@@ -13,11 +13,12 @@ import { AuthenticationComponent } from '../../pages/authentication/authenticati
     FooterComponent,
     HeaderComponent,
     PageWrapperComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DashboardRoutingModule
   ],
   exports: [
     FooterComponent,

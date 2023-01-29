@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../../pages/home/home.component';
 import { InscriptionsComponent } from '../../pages/inscriptions/inscriptions.component';
-import { AdminGuard } from 'src/app/core/guards/admin.guard';
+// import { AdminGuard } from 'src/app/core/guards/admin.guard';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
 
   {
-    path: '', component: DashboardComponent, children:
+    path: 'dashboard', component: DashboardComponent,
+    children:
 
       [{ path: 'home', component: HomeComponent },
 
@@ -25,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'inscriptions', component: InscriptionsComponent,
-        canActivate: [AdminGuard]
+        // canActivate: [AdminGuard]
       },
       ]
   }

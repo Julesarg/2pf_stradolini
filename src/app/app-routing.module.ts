@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './layouts/dashboard/dashboard.component';
-import { AuthenticationComponent } from './pages/authentication/authentication.component';
-const routes: Routes = [
 
+const routes: Routes = [
   {
-    path: 'login', loadChildren: () => import('./pages/authentication/authentication.module').then(module => module.AuthenticationModule)
+    path: 'auth', loadChildren: () => import('./pages/authentication/authentication.module').then(module => module.AuthenticationModule)
   },
   {
-    path: '', component: DashboardComponent,
+    path: 'dashboard', loadChildren: () => import('./layouts/dashboard/dashboard.module').then(module => module.DashboardModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'auth'
   }
 ]
 

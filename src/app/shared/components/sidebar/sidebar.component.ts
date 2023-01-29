@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnDestroy } from '@angular/core';
+import { User } from 'src/app/core/models/users.model';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,4 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 
 })
-export class SidebarComponent { }
+
+
+export class SidebarComponent implements OnDestroy {
+
+  public user: User | null = null;
+
+  constructor(public readonly authservice: AuthService) { }
+
+  ngOnDestroy(): void {
+    console.log(this.user)
+  }
+}

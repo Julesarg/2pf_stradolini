@@ -1,19 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { SessionService } from 'src/app/core/services/session.service';
 
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
   styleUrls: ['./authentication.component.scss']
 })
-export class AuthenticationComponent {
+
+export class AuthenticationComponent implements OnDestroy {
   hide = true;
+  public loading = false
 
-  emailControl = new FormControl('test@admin.com', [Validators.required, Validators.email]);
-  passwordControl = new FormControl('passwordadmin', [Validators.required, Validators.minLength(8), Validators.pattern('[a-zA-Z 0-9]*')])
+  public loginForm = new FormGroup({
+    email: new FormControl('michael.lawson@reqres.in', [Validators.required, Validators.email]),
+    password: new FormControl('cityslicka', [Validators.required, Validators.minLength(8), Validators.pattern('[a-zA-Z 0-9]*')])
+  })
+  private destroyed$ = new Subject();
 
-  loginForm = new FormGroup({
-    email: this.emailControl,
-    password: this.passwordControl
-  });
+  constructor(
+    private readonly authService: AuthService,
+    private readonly sessionService: SessionService,
+    private readonly router: Router,
+  ) {
+    this.sessionService.user$.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
+      if (user) this.router.navigate(['dashboard', 'home'])
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(true)
+  }
+
+  login() {
+    this.loading = true
+    this.authService.login({
+      email: this.loginForm.get('email')?.value || '',
+      password: this.loginForm.get('password')?.value || ''
+    }).subscribe(() => this.loading = true)
+  }
 }
