@@ -4,8 +4,8 @@
       <img src="../../../../assets/images/userimg.jpg">
     </div>
 
-    <h2>
-      PENDIENTE VISTA USUARIO
+    <h2 *ngIf="user; else null">
+      {{user.fullname}}
     </h2>
 
     <div class="user-container_divider">

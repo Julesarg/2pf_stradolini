@@ -15,19 +15,19 @@ export class SessionService {
     this.user.next(user);
   }
 
-  updateSessionUser(data: Partial<User>) {
-    this.user$.pipe(take(1)).subscribe((user) => {
-      if (user) {
-        this.setUser(
-          new User(
-            data.id || user.id,
-            data.email || user.email,
-            data.first_name || user.first_name,
-            data.last_name || user.last_name,
-            data.avatar || user.avatar,
-          )
-        )
-      }
-    })
-  }
+  // updateSessionUser(data: Partial<User>) {
+  //   this.user$.pipe(take(1)).subscribe((user) => {
+  //     if (user) {
+  //       this.setUser(
+  //         new User(
+  //           data.id || user.id,
+  //           data.email || user.email,
+  //           data.first_name || user.first_name,
+  //           data.last_name || user.last_name,
+  //           data.avatar || user.avatar,
+  //         )
+  //       )
+  //     }
+  //   })
+  // }
 }

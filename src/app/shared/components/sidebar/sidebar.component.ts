@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { User } from 'src/app/core/models/users.model';
-import { AuthService } from '../../../core/services/auth.service';
+import { SessionService } from 'src/app/core/services/session.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,10 +14,16 @@ import { AuthService } from '../../../core/services/auth.service';
 export class SidebarComponent implements OnDestroy {
 
   public user: User | null = null;
+  private destroyed$ = new Subject();
 
-  constructor(public readonly authservice: AuthService) { }
+  constructor(private readonly sessionService: SessionService) {
+
+    this.sessionService.user$.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
+      if (user) this.user = user
+    })
+  }
 
   ngOnDestroy(): void {
-    console.log(this.user)
+    this.destroyed$.next(true)
   }
 }
