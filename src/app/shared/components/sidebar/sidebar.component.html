@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="user-container">
     <div class="userImg">
-      <img src="../../../../assets/images/userimg.jpg">
+      <img src={{user?.avatar}}>
     </div>
 
     <h2 *ngIf="user; else null">
@@ -10,7 +10,8 @@
 
     <div class="user-container_divider">
       <h5>Access Lvl</h5>
-      <h4>ADMIN</h4>
+      <h4 *ngIf="user?.fullname; else null">ADMIN</h4>
+      <h4 *ngIf="!user">VISITOR</h4>
     </div>
 
   </div>
@@ -38,9 +39,9 @@
 
   </div>
   <div class="logout-container">
-    <h4><a>Log Out</a></h4>
-    <span>
-      <a>
+    <h4 *ngIf="user?.fullname; else null"><a (click)="authService.logOut()">Log Out</a></h4>
+    <span *ngIf="user?.fullname; else null">
+      <a (click)="authService.logOut()">
         <i class="fa-solid fa-right-from-bracket"></i>
       </a>
     </span>

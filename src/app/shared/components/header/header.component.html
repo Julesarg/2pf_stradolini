@@ -3,13 +3,9 @@
     <img src="../../../../assets/images/logo.png">
   </div>
   <div class="header-container-log">
-    <div>
+    <div *ngIf="!user">
       <i class="fa-regular fa-user"></i>
-      <p><a>Login</a></p>
-    </div>
-    <div>
-      <i class="fa-solid fa-user-plus"></i>
-      <p>Register</p>
+      <p><a [routerLink]="['/auth']">Login</a></p>
     </div>
   </div>
 </div>
