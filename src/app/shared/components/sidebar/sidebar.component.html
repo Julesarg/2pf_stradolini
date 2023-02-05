@@ -1,17 +1,21 @@
 <div class="sidebar">
   <div class="user-container">
     <div class="userImg">
-      <img src={{user?.avatar}}>
+      <!-- <img src={{user?.avatar}}> -->
+      <img src={{(user|async)?.avatar}}>
     </div>
 
     <h2 *ngIf="user; else null">
-      {{user.fullname}}
+      <!-- {{user.fullname}} -->
+      {{(user | async)?.fullname}}
     </h2>
 
     <div class="user-container_divider">
       <h5>Access Lvl</h5>
-      <h4 *ngIf="user?.fullname; else null">ADMIN</h4>
-      <h4 *ngIf="!user">VISITOR</h4>
+      <!-- <h4 *ngIf="user?.fullname; else null">ADMIN</h4> -->
+      <h4 *ngIf="(user | async)?.fullname; else null">ADMIN</h4>
+      <!-- <h4 *ngIf="!user">VISITOR</h4> -->
+      <h4 *ngIf="!(user | async)">VISITOR</h4>
     </div>
 
   </div>
@@ -39,8 +43,10 @@
 
   </div>
   <div class="logout-container">
-    <h4 *ngIf="user?.fullname; else null"><a (click)="authService.logOut()">Log Out</a></h4>
-    <span *ngIf="user?.fullname; else null">
+    <!-- <h4 *ngIf="user?.fullname; else null"><a (click)="authService.logOut()">Log Out</a></h4> -->
+    <h4 *ngIf="(user | async)?.fullname; else null"><a (click)="authService.logOut()">Log Out</a></h4>
+    <!-- <span *ngIf="user?.fullname; else null"> -->
+    <span *ngIf="(user | async)?.fullname; else null">
       <a (click)="authService.logOut()">
         <i class="fa-solid fa-right-from-bracket"></i>
       </a>

@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { filter, Subject, take, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { SessionService } from 'src/app/core/services/session.service';
 
@@ -36,17 +36,32 @@ export class AuthenticationComponent implements OnDestroy {
     this.authService.login({
       email: this.loginForm.get('email')?.value || '',
       password: this.loginForm.get('password')?.value || ''
-    }).subscribe((user) => {
-      this.loading = false
-      if (user) {
-        this.sessionService.user$.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
-          if (user) this.router.navigate(['dashboard', 'home'])
-        });
-      }
     })
+
+
+      .subscribe((user) => {
+        this.loading = false
+        if (user) {
+          this.sessionService.user$.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
+            if (user) this.router.navigate(['dashboard', 'home'])
+          });
+        }
+      })
   }
 
-  logOut() {
 
-  }
+  //     this.router.navigate(['dashboard', 'home'])
+  // this.authService.isAuthenticated$
+  //   .pipe(filter((value) => value))
+  //   .pipe(take(1))
+  //   .subscribe((value) => {
+  //     if (value) {
+  //       this.router.navigate(['dashboard', 'students']);
+  //     }
+  //   });
+
+
+
+
+  logOut() { }
 }
