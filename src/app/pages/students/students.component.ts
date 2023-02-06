@@ -43,11 +43,7 @@ export class StudentsComponent implements OnInit {
     this.studentsService.editStudent(student)
   }
 
-
   clickAddStudent(student: Student) {
     this.studentsService.addStudent(student)
   }
-
-
-
 }

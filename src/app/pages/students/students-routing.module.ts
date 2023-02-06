@@ -5,7 +5,12 @@ import { StudentsComponent } from './students.component';
 
 const routes: Routes = [
   {
-    path: '', component: StudentsComponent
+    path: '', component: StudentsComponent,
+    children: [
+      {
+        path: '', loadChildren: () => import('../../shared/errors/error404/error404.module').then(module => module.Error404Module),
+      }
+    ]
   }
 ]
 

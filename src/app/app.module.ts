@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,8 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { appReducer } from './store/app.reducer';
+import { AppStoreModule } from './app-store.module';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { appReducer } from './store/app.reducer';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot(appReducer, {})
+    AppStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,8 +30,4 @@ describe('pruebas de cursos', () => {
   it('debe crear component', () => {
     expect(component).toBeTruthy();
   });
-  // it('debe crear array de curso', () => {
-  //   component.ngOnInit();
-  //   expect(spyCursos).toHaveBeenCalled()
-  // })
 })

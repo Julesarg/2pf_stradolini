@@ -11,6 +11,7 @@ import { AddStudentComponent } from './dialogs-modals/add-student/add-student.co
 import { ModifyStudentComponent } from './dialogs-modals/modify-student/modify-student.component';
 import { RouterModule } from '@angular/router';
 import { CourseDetailComponent } from './dialogs-modals/course-detail/course-detail.component';
+import { Error404Module } from './errors/error404/error404.module';
 
 
 @NgModule({
@@ -18,7 +19,6 @@ import { CourseDetailComponent } from './dialogs-modals/course-detail/course-det
     FontsDirective,
     AddStudentErrorsComponent,
     FullnamePipe,
-    Error404Component,
     AddStudentComponent,
     ModifyStudentComponent,
     CourseDetailComponent,
@@ -29,6 +29,7 @@ import { CourseDetailComponent } from './dialogs-modals/course-detail/course-det
     ReactiveFormsModule,
     ComponentsModule,
     RouterModule,
+    Error404Module
   ],
   exports: [
     FontsDirective,
@@ -36,7 +37,6 @@ import { CourseDetailComponent } from './dialogs-modals/course-detail/course-det
     MaterialModuleModule,
     FullnamePipe,
     ComponentsModule,
-    Error404Component,
     AddStudentComponent,
     ModifyStudentComponent,
     CourseDetailComponent
