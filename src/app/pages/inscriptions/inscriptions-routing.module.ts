@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { StudentsComponent } from './students.component';
+import { InscriptionsComponent } from './inscriptions.component';
 import { Error404Component } from 'src/app/shared/errors/error404/error404.component';
 
 const routes: Routes = [
   {
-    path: '', component: StudentsComponent,
+    path: '', component: InscriptionsComponent,
   },
   { path: '**', component: Error404Component }
 ]
@@ -19,4 +19,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class StudentsRoutingModule { }
+export class InscriptionsRoutingModule { }

@@ -6,13 +6,11 @@ import { RouterModule } from '@angular/router';
 import { MaterialModuleModule } from 'src/app/core/modules/material-module.module';
 import { HomeComponent } from './home/home.component';
 import { InscriptionsComponent } from './inscriptions/inscriptions.component';
-import { StudentsStoreModule } from './students/students-store.module';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    InscriptionsComponent,
   ],
   imports: [
     CommonModule,
@@ -20,12 +18,11 @@ import { StudentsStoreModule } from './students/students-store.module';
     ReactiveFormsModule,
     RouterModule,
     MaterialModuleModule,
-    StudentsStoreModule
+    HomeModule
   ],
   exports: [
     RouterModule,
-    HomeComponent,
-    InscriptionsComponent,
+    HomeComponent
   ]
 })
 export class PagesModule { }

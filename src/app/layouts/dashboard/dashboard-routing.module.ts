@@ -25,15 +25,14 @@ const routes: Routes = [
         canActivate: [AdminGuard]
       },
       {
-        path: 'inscriptions', component: InscriptionsComponent,
+        path: 'inscriptions', loadChildren: () => import('../../pages/inscriptions/inscriptions.module').then(module => module.InscriptionsModule),
         canActivate: [AdminGuard]
       },
       {
-        path: '**', loadChildren: () => import('../../shared/errors/error404/error404.module').then(module => module.Error404Module),
+        path: '**', component: Error404Component,
       },
       ]
-  },
-
+  }
 ]
 
 @NgModule({

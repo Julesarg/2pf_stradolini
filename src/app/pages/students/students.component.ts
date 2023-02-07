@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { StudentsService } from '../../core/services/students.service';
 
 
-
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -26,6 +25,7 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.student$ = this.studentsService.students$
+
   }
 
   //abrir modal

@@ -1,8 +1,8 @@
 import { UsersComponent } from './users.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { UsersService } from '../../core/services/users.service';
 import { UsersServiceMock } from 'src/app/core/mocks/users.service.mock';
+import { UsersService } from 'src/app/core/services/users.service';
 
 fdescribe('testing de users Comp', () => {
 

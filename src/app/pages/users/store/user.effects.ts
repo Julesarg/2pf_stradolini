@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
-import * as StudentActions from './student.actions';
+import * as UserActions from './user.actions';
 
 
 @Injectable()
-export class StudentEffects {
+export class UserEffects {
 
-  loadStudents$ = createEffect(() => {
+  loadUsers$ = createEffect(() => {
     return this.actions$.pipe( 
 
-      ofType(StudentActions.loadStudents),
+      ofType(UserActions.loadUsers),
       concatMap(() =>
         /** An EMPTY observable only emits completion. Replace with your own observable API request */
         EMPTY.pipe(
-          map(data => StudentActions.loadStudentsSuccess({ data })),
-          catchError(error => of(StudentActions.loadStudentsFailure({ error }))))
+          map(data => UserActions.loadUsersSuccess({ data })),
+          catchError(error => of(UserActions.loadUsersFailure({ error }))))
       )
     );
   });
