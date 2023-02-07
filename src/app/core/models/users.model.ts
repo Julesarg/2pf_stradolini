@@ -7,7 +7,6 @@ export class User {
     public avatar: string
   ) { }
 
-
   get fullname() {
     return this.first_name + ' ' + this.last_name
   }
