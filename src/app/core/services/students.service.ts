@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/students.model';
 import { AddStudentComponent } from 'src/app/shared/dialogs-modals/add-student/add-student.component';
 import { ModifyStudentComponent } from 'src/app/shared/dialogs-modals/modify-student/modify-student.component';
+import { AddStudentErrorsComponent } from '../../shared/errors/add-student-errors/add-student-errors.component';
 
 @Injectable({
   providedIn: 'root',

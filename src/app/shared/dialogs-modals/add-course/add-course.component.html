@@ -1,0 +1,73 @@
+<div mat-dialog-title>Add Course</div>
+
+<form [formGroup]="registerCourse" class="container text-center mt-4">
+
+  <div class="col d-flex flex-column">
+    <label for="name" class="form-label fullname-container_text">Nombre</label>
+    <input [formControl]="nameControl" type="text" class="form-control" id="name" />
+  </div>
+
+  <div class="col d-flex flex-column">
+    <label for="price" class="form-label fullname-container_text">Price</label>
+    <input [formControl]="priceControl" type="number" class="form-control" id="price" />
+  </div>
+
+  <div class="d-flex form-control-added">
+    <div class="col d-flex flex-column justify-content-start align-items-start">
+      <label for="modality" class="form-label">modality</label>
+      <mat-form-field appearance="fill">
+        <mat-label class="modality-select">Select an option</mat-label>
+        <mat-select [formControl]="modalityControl">
+          <mat-option class="modality-options" value="F">Face to Face</mat-option>
+          <mat-option class="modality-options" value="R">Remote</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="d-flex form-control-added">
+    <div class="col d-flex flex-column justify-content-start align-items-start">
+      <label for="inscriptions" class="form-label">Inscriptions</label>
+      <mat-form-field appearance="fill">
+        <mat-label class="inscriptions-select">Select an option</mat-label>
+        <mat-select [formControl]="inscriptionsControl">
+          <mat-option class="inscriptions-options" value="O">Open</mat-option>
+          <mat-option class="inscriptions-options" value="C">Closed</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="d-flex form-control-added">
+    <div class="col d-flex flex-column justify-content-start align-items-start">
+      <label for="duration" class="form-label">duration</label>
+      <mat-form-field appearance="fill">
+        <mat-label class="duration-select">Select an option</mat-label>
+        <mat-select [formControl]="durationControl">
+          <mat-option class="duration-options" value="M">1 month</mat-option>
+          <mat-option class="duration-options" value="M">2 month</mat-option>
+          <mat-option class="duration-options" value="M">3 month</mat-option>
+          <mat-option class="duration-options" value="M">4 month</mat-option>
+          <mat-option class="duration-options" value="M">5 month</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="col d-flex flex-column">
+    <label for="detailsText" class="form-label fullname-container_text">detailsText</label>
+    <input [formControl]="detailsTextControl" type="string" class="form-control" id="detailsText" />
+  </div>
+
+  <div class="col d-flex flex-column">
+    <label for="img" class="form-label fullname-container_text">img</label>
+    <input [formControl]="imgControl" type="file" class="form-control" id="img" />
+  </div>
+
+
+  <div class="d-flex form-control-added button-container">
+    <button (click)="clickAddCourse(element)" [mat-dialog-close]="registerCourse.value"
+      [disabled]="registerCourse.invalid" type="submit" class="btn btn-primary button-confirm">Confirm</button>
+    <button (click)="closeWindow()" type="submit" class="btn btn-primary button-cancel">Cancel</button>
+  </div>
+</form>

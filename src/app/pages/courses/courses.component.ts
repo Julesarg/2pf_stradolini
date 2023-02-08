@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Course } from 'src/app/core/models/courses.model';
+import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CoursesService } from '../../core/services/courses.service';
+import { Course } from '../../core/models/courses.model';
+import { CoursesService } from 'src/app/core/services/courses.service';
 
 
 @Component({
@@ -11,9 +12,11 @@ import { CoursesService } from '../../core/services/courses.service';
 })
 
 export class CoursesComponent implements OnInit {
-  public courses$: Observable<Course[]>;
+  public hover: number
+  public course$: Observable<Course[]>;
 
-  displayedColumns = ['name', 'duration', 'price', 'modality', 'detailsIcon']
+  displayedColumns = ['name', 'duration', 'price', 'modality', 'detailsIcon', 'deleteOption'];
+  element: Course;
 
   constructor(
     private coursesService: CoursesService
@@ -21,10 +24,26 @@ export class CoursesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.courses$ = this.coursesService.courses$
+    this.course$ = this.coursesService.courses$
+
   }
 
   viewCourseDetail(course: Course) {
     this.coursesService.viewCourseDetail(course)
   }
+
+  //abrir modal
+  clickOpenDialog(course: Course) {
+    this.coursesService.openDialog(course)
+  }
+
+  //borrar estudiante
+  clickDeleteCourse(course: Course) {
+    this.coursesService.deleteCourse(course)
+  }
+
+  clickAddcourse(course: Course) {
+    this.coursesService.addCourse(course)
+  }
+
 }

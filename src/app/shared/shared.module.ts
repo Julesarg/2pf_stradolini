@@ -12,6 +12,7 @@ import { ModifyStudentComponent } from './dialogs-modals/modify-student/modify-s
 import { RouterModule } from '@angular/router';
 import { CourseDetailComponent } from './dialogs-modals/course-detail/course-detail.component';
 import { Error404Module } from './errors/error404/error404.module';
+import { AddCourseComponent } from './dialogs-modals/add-course/add-course.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { Error404Module } from './errors/error404/error404.module';
     AddStudentErrorsComponent,
     FullnamePipe,
     AddStudentComponent,
+    AddCourseComponent,
     ModifyStudentComponent,
     CourseDetailComponent,
   ],

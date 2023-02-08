@@ -8,6 +8,7 @@ export class Course {
     public inscriptions: string,
     public detailsIcon: boolean,
     public detailsText: string,
-    public img: any
+    public img: any,
+    public deleteOption: boolean
   ) { }
 }
