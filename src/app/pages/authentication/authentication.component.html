@@ -1,35 +1,73 @@
-<div class="loginsite-container">
-
-  <button mat-stroked-button color="primary">
-    <a [routerLink]="['/dashboard/home']" routerLinkActive="router-link-active">
-      Back to Site
+<div class="header">
+  <main class="content2" data-form-type="card">
+    <a [routerLink]="['/dashboard/home']" routerLinkActive="router-link-active" class="btn">
+      <span class="btn__circle">
+      </span>
+      <span class="btn__white-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" id="icon-arrow-right" viewBox="0 0 21 12">
+          <path d="M17.104 5.072l-4.138-4.014L14.056 0l6 5.82-6 5.82-1.09-1.057 4.138-4.014H0V5.072h17.104z"></path>
+        </svg>
+      </span>
+      <span class="btn__text"><a [routerLink]="['/dashboard/home']" routerLinkActive="router-link-active">
+          Enter Site
+        </a>
+      </span>
     </a>
-  </button>
+  </main>
 
-  <div class="loginsite-container_login">
-    <h1>Log in to Continue</h1>
-    <div class="example-container">
-      <form [formGroup]="loginForm">
-        <mat-form-field appearance="fill" class="example-container_field">
-          <mat-label>enter your email</mat-label>
-          <input matInput placeholder="janedoe@example.com" formControlName="email" type="email" class="form-control"
-            id="email">
-          <mat-icon matSuffix>face</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="example-container_field">
-          <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" type="password"
-            class="form-control" id="password" placeholder="letter and numbers only">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
-      </form>
+  <div class="inner-header flex">
+    <div class="loginsite-container">
+      <div class="loginsite-container_login">
+        <pre>or</pre>
+        <h1>Log in to Continue</h1>
+        <div class="example-container">
+          <form [formGroup]="loginForm">
+            <mat-form-field appearance="fill" class="example-container_field">
+              <mat-label>enter your email</mat-label>
+              <input matInput placeholder="janedoe@example.com" formControlName="email" type="email"
+                class="form-control" id="email">
+              <mat-icon matSuffix>face</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-container_field">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" type="password"
+                class="form-control" id="password" placeholder="letter and numbers only">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+
+      <div class="loginsite-container_home">
+        <button class="butn btn-two " (click)="login()" [mat-dialog-close]="loginForm.value"
+          [disabled]="loginForm.invalid" type="submit">
+          <span>Acept</span>
+        </button>
+      </div>
+
     </div>
   </div>
-  <div class="loginsite-container_home">
-    <button [mat-dialog-close]="loginForm.value" [disabled]="loginForm.invalid" type="submit"
-      class="btn btn-primary button-confirm" (click)="login()">Acept</button>
-  </div>
+  <!--Waves Container-->
+
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28"
+    preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,0,0,0.7" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,0,0,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#000" />
+    </g>
+  </svg>
+
+  <!--Waves end-->
+</div>
+<!--Header ends-->
+<div class="content flex">
+  <p> CoderHouse Angular project | Stradolini Julian </p>
 </div>

@@ -1,5 +1,159 @@
+///animated bg
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+.header {
+  position: relative;
+  text-align: center;
+  background-image: url("../../../assets/images/bgmain.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  height: 95vh;
+}
+.inner-header {
+  height: 65vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+}
+.waves {
+  position: relative;
+  width: 100%;
+  height: 25vh;
+  min-height: 200px;
+  max-height: 20vh;
+}
+.content {
+  position: relative;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgb(0, 0, 0) 0%,
+    rgba(0, 172, 193, 1) 100%
+  );
+  p {
+    height: auto;
+    margin: 0;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+/* Animation */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+//end animation bg
+
+/// animated enter button
+a {
+  text-decoration: none;
+  color: white;
+}
+.btn {
+  display: inline-block;
+  color: #ffffff;
+  padding: 32px;
+  position: relative;
+  letter-spacing: 1px;
+  &__circle,
+  &__text,
+  &__white-circle {
+    position: absolute;
+  }
+  &__circle {
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 100%;
+    width: 100%;
+    box-shadow: 0 0 1px 1px #fff;
+    transition: 0.3s linear;
+  }
+  &__white-circle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    background: #ffffff;
+    display: flex;
+    transition: 0.3s ease-in-out;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      margin: auto;
+    }
+  }
+  &__text {
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    z-index: 2;
+    padding: 24px 8px;
+    transition: 0.2s linear;
+  }
+  &:hover {
+    .btn__circle {
+      transform: scale(0);
+    }
+
+    .btn__white-circle {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .btn__text {
+      transform: translate(40px, -50%);
+    }
+  }
+}
+.content2 {
+  background: transparent;
+  width: 5vw;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+///
+
 .loginsite-container {
-  height: 100vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +161,7 @@
     height: auto;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
+    margin-top: 10%;
     padding-top: 5px;
     padding-bottom: 5px;
     a {
@@ -22,31 +176,92 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
+    pre {
+      color: white;
+      margin: 0;
+    }
+    h1 {
+      color: rgba(255, 255, 255, 0.7);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
     .example-container {
-      width: 35vw;
+      width: 100vw;
       display: flex;
       align-items: center;
       justify-content: space-around;
+      background-color: rgba(255, 255, 255, 0.02);
+      padding-top: 20px;
       .example-container_field {
         width: 300px;
+        margin-left: 5px;
+        margin-right: 5px;
       }
     }
   }
   .loginsite-container_home {
-    display: flex;
-    width: 10vw;
-    justify-content: space-around;
-    button {
-      height: auto;
-      justify-content: center;
-      align-items: center;
-      a {
-        color: black;
+    width: 5vw;
+    .butn {
+      position: relative;
+      color: white;
+      width: 256px;
+      height: 60px;
+      transition: all 0.3s;
+      background-color: transparent;
+      span {
+        transition: all 0.3s;
+        transform: scale(1, 1);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 1.2em;
-        text-decoration: none;
-        margin: 0;
-        padding: 0;
+      }
+    }
+    .btn-two::before,
+    .btn-two::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .btn-two:hover::after {
+      animation-name: rotatecw;
+      animation-duration: 2s;
+      border-radius: 100%;
+      width: 150%;
+    }
+    .btn-two:hover::before {
+      animation-name: rotateccw;
+      animation-duration: 3s;
+      border-radius: 100%;
+      width: 200%;
+      height: 110%;
+    }
+    .btn-two:hover::after,
+    .btn-two:hover::before {
+      left: 96px;
+      width: 64px;
+
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes rotatecw {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotateccw {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(-360deg);
       }
     }
   }

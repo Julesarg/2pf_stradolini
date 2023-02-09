@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/students.model';
 import { AddStudentComponent } from 'src/app/shared/dialogs-modals/add-student/add-student.component';
 import { ModifyStudentComponent } from 'src/app/shared/dialogs-modals/modify-student/modify-student.component';
-import { AddStudentErrorsComponent } from '../../shared/errors/add-student-errors/add-student-errors.component';
 
 @Injectable({
   providedIn: 'root',
@@ -85,21 +84,10 @@ export class StudentsService {
 
   addStudent(student: Student) {
     this.students$
-      .pipe(
-        take(1),
-        mergeMap((studentlist) =>
-          this.httpClient
-            .post<Student>(
-              'https://63c49434f0028bf85faa17cd.mockapi.io/students',
-              student
-            )
-            .pipe(
-              tap((addedStudent) =>
-                this.students.next([...studentlist, addedStudent])
-              )
-            )
-        ),
-      )
-      .subscribe()
+      .pipe(take(1), mergeMap((studentlist) => this.httpClient.post<Student>('https://63c49434f0028bf85faa17cd.mockapi.io/students', student)
+        .pipe(tap((addedStudent) => this.students.next([...studentlist, addedStudent])))
+      ),
+      ).subscribe()
   }
 }
+
