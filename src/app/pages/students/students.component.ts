@@ -25,7 +25,6 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.student$ = this.studentsService.students$
-
   }
 
   //abrir modal
@@ -41,9 +40,5 @@ export class StudentsComponent implements OnInit {
   //editar estudiante
   clickEditStudent(student: Student) {
     this.studentsService.editStudent(student)
-  }
-
-  clickAddStudent(student: Student) {
-    this.studentsService.addStudent(student)
   }
 }

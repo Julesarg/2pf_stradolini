@@ -20,10 +20,15 @@ export class AddStudentComponent {
   public student$: Observable<Student[]>;
   element: Student;
 
+  ngOnInit(): void {
+    this.student$ = this.studentsService.students$
+  }
 
   constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private studentsService: StudentsService) {
     dialog.disableClose = true;
   }
+
+
 
   nameControl = new FormControl('', [
     Validators.required,
@@ -56,3 +61,4 @@ export class AddStudentComponent {
     this.dialogRef.close()
   }
 }
+
