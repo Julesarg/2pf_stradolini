@@ -28,8 +28,6 @@ export class AddStudentComponent {
     dialog.disableClose = true;
   }
 
-
-
   nameControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3),

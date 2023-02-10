@@ -13,11 +13,13 @@ import { RouterModule } from '@angular/router';
 import { CourseDetailComponent } from './dialogs-modals/course-detail/course-detail.component';
 import { Error404Module } from './errors/error404/error404.module';
 import { AddCourseComponent } from './dialogs-modals/add-course/add-course.component';
+import { GreenTextDirective } from '../core/directives/greenText.directive';
 
 
 @NgModule({
   declarations: [
     FontsDirective,
+    GreenTextDirective,
     AddStudentErrorsComponent,
     FullnamePipe,
     AddStudentComponent,
@@ -35,11 +37,13 @@ import { AddCourseComponent } from './dialogs-modals/add-course/add-course.compo
   ],
   exports: [
     FontsDirective,
+    GreenTextDirective,
     AddStudentErrorsComponent,
     MaterialModuleModule,
     FullnamePipe,
     ComponentsModule,
     AddStudentComponent,
+    AddCourseComponent,
     ModifyStudentComponent,
     CourseDetailComponent
   ]

@@ -1,14 +1,23 @@
 <div class="sidebar">
   <div class="user-container">
     <div class="userImg">
-      <!-- <img src={{user?.avatar}}> -->
-      <img src={{(user|async)?.avatar}}>
+      <div class="userImg-container" *ngIf="!(user | async)">
+        <img src='../../../../assets/images/visitor.png'>
+      </div>
+      <div class="userImg-container" *ngIf="(user | async)">
+        <img src={{(user|async)?.avatar}}>
+      </div>
     </div>
 
-    <h2 *ngIf="user; else null">
-      <!-- {{user.fullname}} -->
-      {{(user | async)?.fullname}}
-    </h2>
+    <div>
+      <h2 *ngIf="user; else null">
+        {{(user | async)?.fullname}}
+      </h2>
+      <h2 *ngIf="!(user | async)">
+        Guest
+      </h2>
+    </div>
+
 
     <div class="user-container_divider">
       <h5>Access Lvl</h5>
@@ -32,9 +41,6 @@
       </li>
       <li>
         <a [routerLink]="['/dashboard/inscriptions']" routerLinkActive="router-link-active">Inscripciones</a>
-      </li>
-      <li>
-        <a>Not in Use</a>
       </li>
       <li>
         <a [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">Users</a>

@@ -76,7 +76,6 @@ export class StudentsService {
     });
   }
 
-  //add student
   addStudent(student: Student) {
     this.students$
       .pipe(
@@ -94,18 +93,6 @@ export class StudentsService {
             )
         ),
       )
-      .subscribe(console.log)
+      .subscribe()
   }
-
-  // createStudent(newStudentData: Student) {
-  //   this.students.pipe(take(1))
-  //     .subscribe((students) => {
-  //       const lastId = students[students.length - 1]?.id || 0;
-  //       this.students.next([
-  //         ...students,
-  //         new Student(lastId + 1, newStudentData.name, newStudentData.lastName, newStudentData.email, newStudentData.gender, true, true)
-  //       ])
-  //     })
-  // }
-
 }

@@ -1,10 +1,11 @@
 .main-background {
   display: flex;
-  background-image: url(../../../assets/images/background.png);
+  background-image: url(../../../assets/images/background3.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% auto;
-  background-position: 100% 50%;
+  background-size: 90% auto;
+  background-position: 100% 10%;
+  background-position-x: right;
 }
 .right-main-container {
   display: flex;
