@@ -19,7 +19,6 @@ import { GreenTextDirective } from '../core/directives/greenText.directive';
 @NgModule({
   declarations: [
     FontsDirective,
-    GreenTextDirective,
     AddStudentErrorsComponent,
     FullnamePipe,
     AddStudentComponent,
@@ -37,7 +36,6 @@ import { GreenTextDirective } from '../core/directives/greenText.directive';
   ],
   exports: [
     FontsDirective,
-    GreenTextDirective,
     AddStudentErrorsComponent,
     MaterialModuleModule,
     FullnamePipe,

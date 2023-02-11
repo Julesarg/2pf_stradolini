@@ -6,6 +6,7 @@ import { PageWrapperComponent } from './page-wrapper/page-wrapper.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutingModule } from '../../layouts/dashboard/dashboard-routing.module';
+import { GreenTextDirective } from '../../core/directives/greenText.directive';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { DashboardRoutingModule } from '../../layouts/dashboard/dashboard-routin
     HeaderComponent,
     PageWrapperComponent,
     SidebarComponent,
+    GreenTextDirective
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { DashboardRoutingModule } from '../../layouts/dashboard/dashboard-routin
     FooterComponent,
     HeaderComponent,
     PageWrapperComponent,
-    SidebarComponent
+    SidebarComponent,
+    GreenTextDirective
   ]
 })
 export class ComponentsModule { }

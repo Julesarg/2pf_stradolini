@@ -3,7 +3,6 @@
     <img src="../../../../assets/images/logo.png">
   </div>
   <div class="header-container-log">
-    <!-- <div *ngIf="!user"> -->
     <div *ngIf="!(user | async)">
       <i class="fa-regular fa-user"></i>
       <p><a [routerLink]="['/auth']">Login</a></p>

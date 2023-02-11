@@ -8,7 +8,6 @@
         <img src={{(user|async)?.avatar}}>
       </div>
     </div>
-
     <div>
       <h2 *ngIf="user; else null">
         {{(user | async)?.fullname}}
@@ -17,46 +16,40 @@
         Guest
       </h2>
     </div>
-
-
     <div class="user-container_divider">
       <h5>Access Lvl</h5>
-      <!-- <h4 *ngIf="user?.fullname; else null">ADMIN</h4> -->
-      <h4 *ngIf="(user | async)?.fullname; else null">ADMIN</h4>
-      <!-- <h4 *ngIf="!user">VISITOR</h4> -->
+      <h4 appGreenText *ngIf="(user | async)?.fullname; else null">ADMIN</h4>
       <h4 *ngIf="!(user | async)">VISITOR</h4>
     </div>
-
   </div>
   <div class="navigation-container">
     <ul>
-      <li>
-        <a [routerLink]="['/dashboard/home']" routerLinkActive="router-link-active">News</a>
+      <li class="button-effect">
+        <a class="effect effect-5" [routerLink]="['/dashboard/home']" routerLinkActive="router-link-active">News</a>
       </li>
-      <li>
-        <a [routerLink]="['/dashboard/courses']" routerLinkActive="router-link-active">Cursos</a>
+      <li class="button-effect">
+        <a class="effect effect-5" [routerLink]="['/dashboard/courses']"
+          routerLinkActive="router-link-active">Cursos</a>
       </li>
-      <li>
-        <a [routerLink]="['/dashboard/students']" routerLinkActive="router-link-active">Alumnos</a>
+      <li class="button-effect">
+        <a class="effect effect-5" [routerLink]="['/dashboard/students']"
+          routerLinkActive="router-link-active">Alumnos</a>
       </li>
-      <li>
-        <a [routerLink]="['/dashboard/inscriptions']" routerLinkActive="router-link-active">Inscripciones</a>
+      <li class="button-effect">
+        <a class="effect effect-5" [routerLink]="['/dashboard/inscriptions']"
+          routerLinkActive="router-link-active">Inscripciones</a>
       </li>
-      <li>
-        <a [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">Users</a>
+      <li class="button-effect">
+        <a class="effect effect-5" [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">Users</a>
       </li>
     </ul>
-
   </div>
-  <div class="logout-container">
-    <!-- <h4 *ngIf="user?.fullname; else null"><a (click)="authService.logOut()">Log Out</a></h4> -->
-    <h4 *ngIf="(user | async)?.fullname; else null"><a (click)="authService.logOut()">Log Out</a></h4>
-    <!-- <span *ngIf="user?.fullname; else null"> -->
-    <span *ngIf="(user | async)?.fullname; else null">
+
+  <div class="logout-container" *ngIf="(user | async)?.fullname; else null">
+    <h4><a (click)="authService.logOut()">Log Out</a></h4>
+    <span>
       <a (click)="authService.logOut()">
         <i class="fa-solid fa-right-from-bracket"></i>
       </a>
     </span>
   </div>
-
-</div>
