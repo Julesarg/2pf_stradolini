@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutingModule } from '../../layouts/dashboard/dashboard-routing.module';
 import { GreenTextDirective } from '../../core/directives/greenText.directive';
+import { FullnamePipe } from 'src/app/core/pipes/fullname.pipe';
 
 
 @NgModule({
@@ -15,12 +16,13 @@ import { GreenTextDirective } from '../../core/directives/greenText.directive';
     HeaderComponent,
     PageWrapperComponent,
     SidebarComponent,
-    GreenTextDirective
+    GreenTextDirective,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+
   ],
   exports: [
     FooterComponent,

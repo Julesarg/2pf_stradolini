@@ -3,7 +3,12 @@ import { OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../../core/models/courses.model';
 import { CoursesService } from 'src/app/core/services/courses.service';
-
+import { User } from 'src/app/core/models/users.model';
+import { SessionService } from 'src/app/core/services/session.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { AppState } from 'src/app/store/app.reducer';
+import { Store } from '@ngrx/store';
+import { authenticatedUserSelector } from 'src/app/store/authentication/authentication.selector';
 
 @Component({
   selector: 'app-courses',
@@ -14,13 +19,17 @@ import { CoursesService } from 'src/app/core/services/courses.service';
 export class CoursesComponent implements OnInit {
   public hover: number
   public course$: Observable<Course[]>;
+  public user: Observable<User | null>;
 
   displayedColumns = ['name', 'duration', 'price', 'modality', 'detailsIcon', 'deleteOption'];
   element: Course;
 
   constructor(
-    private coursesService: CoursesService
-  ) { }
+    private coursesService: CoursesService, private readonly sessionService: SessionService, public readonly authService: AuthService, private readonly store: Store<AppState>
+  ) {
+
+    this.user = this.store.select(authenticatedUserSelector)
+  }
 
 
   ngOnInit(): void {
