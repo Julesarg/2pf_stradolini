@@ -6,14 +6,12 @@ import { MaterialModuleModule } from '../core/modules/material-module.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FullnamePipe } from '../core/pipes/fullname.pipe';
 import { ComponentsModule } from './components/components.module';
-import { Error404Component } from './errors/error404/error404.component';
 import { AddStudentComponent } from './dialogs-modals/add-student/add-student.component';
 import { ModifyStudentComponent } from './dialogs-modals/modify-student/modify-student.component';
 import { RouterModule } from '@angular/router';
 import { CourseDetailComponent } from './dialogs-modals/course-detail/course-detail.component';
 import { Error404Module } from './errors/error404/error404.module';
 import { AddCourseComponent } from './dialogs-modals/add-course/add-course.component';
-import { GreenTextDirective } from '../core/directives/greenText.directive';
 
 
 @NgModule({
@@ -32,7 +30,7 @@ import { GreenTextDirective } from '../core/directives/greenText.directive';
     ReactiveFormsModule,
     ComponentsModule,
     RouterModule,
-    Error404Module
+    Error404Module,
   ],
   exports: [
     FontsDirective,

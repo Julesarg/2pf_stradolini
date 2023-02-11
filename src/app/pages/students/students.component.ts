@@ -3,6 +3,8 @@ import { Student } from 'src/app/core/models/students.model';
 import { OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentsService } from '../../core/services/students.service';
+import { AddStudentComponent } from 'src/app/shared/dialogs-modals/add-student/add-student.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -19,17 +21,12 @@ export class StudentsComponent implements OnInit {
   element: Student;
 
   constructor(
-    private studentsService: StudentsService
+    private studentsService: StudentsService,
+    private readonly dialogService: MatDialog
   ) { }
-
 
   ngOnInit(): void {
     this.student$ = this.studentsService.students$
-  }
-
-  //abrir modal
-  clickOpenDialog(student: Student) {
-    this.studentsService.openDialog(student)
   }
 
   //borrar estudiante
@@ -41,8 +38,20 @@ export class StudentsComponent implements OnInit {
   clickEditStudent(student: Student) {
     this.studentsService.editStudent(student)
   }
-
-  clickAddStudent(student: Student) {
-    this.studentsService.addStudent(student)
+  clickAddStudent() {
+    const dialog = this.dialogService.open(AddStudentComponent)
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.studentsService.addStudent({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          gender: data.gender,
+          edit: false,
+          deleteOption: false,
+          lastName: data.lastName
+        })
+      }
+    })
   }
 }

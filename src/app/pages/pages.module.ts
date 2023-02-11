@@ -8,18 +8,17 @@ import { HomeModule } from './home/home.module';
 
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
     RouterModule,
     MaterialModuleModule,
-    HomeModule
+    HomeModule,
   ],
   exports: [
-    RouterModule,
+    RouterModule
   ]
 })
 export class PagesModule { }

@@ -10,7 +10,6 @@ import { AddCourseComponent } from 'src/app/shared/dialogs-modals/add-course/add
   providedIn: 'root'
 })
 export class CoursesService {
-
   public courses$: Observable<Course[]>;
   private courses = new BehaviorSubject<Course[]>([]);
   private readonly baseURL = 'https://63c49434f0028bf85faa17cd.mockapi.io'
@@ -27,6 +26,42 @@ export class CoursesService {
   }
 
 
+  ////funciones//////////
+
+  //agregar curso
+  // addCourse(newCourseData: Omit<Course, 'id' | 'active'>): void {
+  //   this.courses.pipe(take(1)).subscribe((courses) => {
+  //     const lastId = courses[courses.length - 1]?.id || 0;
+  //     this.courses.next([
+  //       ...courses,
+  //       new Course(lastId + 1, newCourseData.name, newCourseData.duration, newCourseData.price, newCourseData.modality, newCourseData.inscriptions, newCourseData.detailsIcon, newCourseData.detailsText, newCourseData.deleteOption, newCourseData.img)
+  //     ])
+  //   })
+  // }
+
+
+  addCourse(course: Course) {
+    this.courses$
+      .pipe(
+        take(1),
+        mergeMap((courseList) =>
+          this.httpClient
+            .post<Course>(
+              'https://63c49434f0028bf85faa17cd.mockapi.io/courses',
+              course
+            )
+            .pipe(
+              tap((addedCourse) =>
+                this.courses.next([...courseList, addedCourse])
+              )
+            )
+        ),
+      )
+      .subscribe()
+  }
+
+
+  //borrar curso
   deleteCourse(course: Course) {
     this.httpClient
       .delete(
@@ -47,32 +82,6 @@ export class CoursesService {
 
   viewCourseDetail(course: Course) {
     let dialog = this.dialogService.open(CourseDetailComponent, { data: course })
-  }
-
-  openDialog(course: Course) {
-    let dialog = this.dialogService.open(AddCourseComponent, {
-      data: course,
-    });
-  }
-
-  addCourse(course: Course) {
-    this.courses$
-      .pipe(
-        take(1),
-        mergeMap((courseList) =>
-          this.httpClient
-            .post<Course>(
-              'https://63c49434f0028bf85faa17cd.mockapi.io/courses',
-              course
-            )
-            .pipe(
-              tap((addedCourse) =>
-                this.courses.next([...courseList, addedCourse])
-              )
-            )
-        ),
-      )
-      .subscribe()
   }
 }
 

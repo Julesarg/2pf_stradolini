@@ -1,6 +1,6 @@
 .courses-container {
-  width: 60vw;
-  height: 60vh;
+  width: fit-content;
+  height: fit-content;
   opacity: 0.95;
   display: flex;
   flex-direction: column;
@@ -8,30 +8,101 @@
   align-items: center;
   .button-container {
     width: 100%;
-    margin-bottom: 1%;
-    padding-bottom: 1%;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: rgba(0, 0, 0, 0.15);
+    padding-top: 1%;
+    text-align: end;
+    .button-container_button {
+      font-size: 0.8em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: inline-block;
+      text-align: center;
+      font-weight: bold;
+      padding: 0.7em 2em;
+      border: 3px solid #1100ff;
+      border-radius: 2px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+      color: #1100ff;
+      text-decoration: none;
+      transition: 0.3s ease all;
+      z-index: 1;
+    }
+
+    .button-container_button:before {
+      transition: 0.5s all ease;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      bottom: 0;
+      opacity: 0;
+      content: "";
+      background-color: #1100ff;
+      z-index: -1;
+    }
+
+    .button-container_button:hover,
+    .button-container_button:focus {
+      color: white;
+    }
+
+    .button-container_button:hover:before,
+    .button-container_button:focus:before {
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+
+    .button-container_button:active {
+      transform: scale(0.9);
+    }
   }
   .table-container {
+    background-color: white;
+    .about-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-width: 2px;
+      .about-container-text {
+        margin: 0;
+        border-radius: 10px;
+      }
+    }
     .table-container-column {
       width: 10vw;
       text-align: center;
+      justify-content: center;
+      align-items: center;
       font-weight: bold;
+      background-color: rgba(138, 138, 138, 0.7);
+
+      p {
+        color: white;
+        font-size: 0.8em;
+        font-weight: 400;
+        margin: 0;
+      }
     }
     .table-container-row {
       text-align: center;
       width: 25vw;
-      .deleteButton {
-        width: 2vw;
-        height: 2vw;
-        --mdc-fab-container-color: transparent;
-        .mat-icon {
-          height: auto;
-          color: rgba(0, 0, 0, 0.8);
-        }
-      }
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 0px;
+      padding-right: 0px;
     }
+  }
+  img {
+    width: auto;
+    height: 50px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  img:hover {
+    transform: scale(1.1, 1.1);
+    opacity: 1;
   }
 }

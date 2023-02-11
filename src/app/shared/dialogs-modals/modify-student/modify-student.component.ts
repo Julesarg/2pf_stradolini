@@ -16,6 +16,12 @@ import { Student } from 'src/app/core/models/students.model';
 })
 export class ModifyStudentComponent {
 
+  constructor(private readonly dialogRef: DialogRef, @Inject(MAT_DIALOG_DATA) public data: Student | null) {
+    if (data) {
+      this.registerForm.patchValue(data)
+    }
+  }
+
   nameControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
@@ -37,13 +43,6 @@ export class ModifyStudentComponent {
     email: this.emailControl,
     gender: this.genderControl,
   });
-
-  constructor(private readonly dialogRef: DialogRef, @Inject(MAT_DIALOG_DATA) public data: Student | null) {
-    if (data) {
-      this.registerForm.patchValue(data)
-    }
-  }
-
   closeWindow() {
     this.dialogRef.close()
   }

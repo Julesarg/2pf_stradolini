@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject, mergeMap, Observable, of, take, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/students.model';
-import { AddStudentComponent } from 'src/app/shared/dialogs-modals/add-student/add-student.component';
 import { ModifyStudentComponent } from 'src/app/shared/dialogs-modals/modify-student/modify-student.component';
 @Injectable({
   providedIn: 'root',
@@ -11,20 +10,58 @@ import { ModifyStudentComponent } from 'src/app/shared/dialogs-modals/modify-stu
 export class StudentsService {
   public students$: Observable<Student[]>;
   private students = new BehaviorSubject<Student[]>([]);
+  private readonly baseURL = 'https://63c49434f0028bf85faa17cd.mockapi.io'
+
   constructor(
     private readonly dialogService: MatDialog,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {
     this.students$ = this.students.asObservable();
     this.getstudentsFromAPI().subscribe((student) => {
       this.students.next(student);
     });
   }
+
   getstudentsFromAPI(): Observable<Student[]> {
     return this.httpClient.get<Student[]>(
-      'https://63c49434f0028bf85faa17cd.mockapi.io/students'
+      `${this.baseURL}/students`
     );
   }
+
+  ////funciones//////////
+
+  //agregar estudiante
+  // addStudent(newStudent: Student) {
+  //   this.students.pipe(take(1)).subscribe((students) => {
+  //     let lastId = students.length - 1
+  //     this.students.next([
+  //       ...students,
+  //       new Student(lastId + 1, newStudent.name, newStudent.lastName, newStudent.email, newStudent.gender, newStudent.edit, newStudent.deleteOption)
+  //     ])
+  //   })
+  // }
+
+
+  addStudent(student: Student) {
+    this.students$
+      .pipe(
+        take(1),
+        mergeMap((studentlist) =>
+          this.httpClient
+            .post<Student>(
+              'https://63c49434f0028bf85faa17cd.mockapi.io/students',
+              student
+            )
+            .pipe(
+              tap((addedStudent) =>
+                this.students.next([...studentlist, addedStudent])
+              )
+            )
+        ),
+      )
+      .subscribe()
+  }
+
   //borrar estudiante
   deleteStudent(student: Student) {
     this.httpClient
@@ -43,6 +80,7 @@ export class StudentsService {
         }
       );
   }
+
   //editar estudiante
   editStudent(student: Student) {
     let dialog = this.dialogService.open(ModifyStudentComponent, {
@@ -68,31 +106,5 @@ export class StudentsService {
           }
         );
     });
-  }
-  // //abrir modal estudiante
-  openDialog(student: Student) {
-    let dialog = this.dialogService.open(AddStudentComponent, {
-      data: student,
-    });
-  }
-
-  addStudent(student: Student) {
-    this.students$
-      .pipe(
-        take(1),
-        mergeMap((studentlist) =>
-          this.httpClient
-            .post<Student>(
-              'https://63c49434f0028bf85faa17cd.mockapi.io/students',
-              student
-            )
-            .pipe(
-              tap((addedStudent) =>
-                this.students.next([...studentlist, addedStudent])
-              )
-            )
-        ),
-      )
-      .subscribe()
   }
 }

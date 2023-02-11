@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {
   FormControl,
@@ -6,7 +6,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from 'src/app/core/models/students.model';
 import { Observable } from 'rxjs';
 import { StudentsService } from 'src/app/core/services/students.service';
@@ -24,7 +24,7 @@ export class AddStudentComponent {
     this.student$ = this.studentsService.students$
   }
 
-  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private studentsService: StudentsService) {
+  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private studentsService: StudentsService, @Inject(MAT_DIALOG_DATA) public data: Student | null) {
     dialog.disableClose = true;
   }
 
@@ -49,10 +49,6 @@ export class AddStudentComponent {
     email: this.emailControl,
     gender: this.genderControl,
   });
-
-  clickAddStudent(student: Student) {
-    this.studentsService.addStudent(student)
-  }
 
   //close
   closeWindow() {
