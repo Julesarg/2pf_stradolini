@@ -6,6 +6,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCourseComponent } from 'src/app/shared/dialogs-modals/add-course/add-course.component';
 import { User } from 'src/app/core/models/users.model';
+import { authenticatedUserSelector } from 'src/app/store/authentication/authentication.selector';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
 
 
 @Component({
@@ -23,8 +26,10 @@ export class CoursesComponent implements OnInit {
   element: Course;
 
   constructor(
-    private coursesService: CoursesService, public readonly authService: AuthService, private readonly dialogService: MatDialog
-  ) { }
+    private coursesService: CoursesService, public readonly authService: AuthService, private readonly dialogService: MatDialog, private readonly store: Store<AppState>
+  ) {
+    this.user = this.store.select(authenticatedUserSelector)
+  }
 
 
   ngOnInit(): void {
@@ -37,7 +42,7 @@ export class CoursesComponent implements OnInit {
       if (data) {
         this.coursesService.addCourse({
           id: data.id,
-          img: data.img,
+          img: '../../../assets/images/mockimg.png',
           name: data.name,
           inscriptions: data.inscriptions,
           duration: data.duration,
