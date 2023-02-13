@@ -12,9 +12,9 @@
   <div class="mb-2">
     <mat-form-field appearance="fill">
       <mat-label>Select Alumno</mat-label>
-      <mat-select formControlName="alumno">
-        <mat-option *ngFor="let alumno of alumnos" [value]="{nombre: alumno.name, apellido:alumno.lastName}">
-          {{alumno.id + "-" + alumno.name + ' ' + alumno.lastName}}
+      <mat-select formControlName="student">
+        <mat-option *ngFor="let student of students" [value]="{name: student.name, apellido:student.lastName}">
+          {{student.id + "-" + student.name + ' ' + student.lastName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -22,9 +22,9 @@
    <div class="mb-2">
     <mat-form-field appearance="fill">
       <mat-label>Select Curso</mat-label>
-      <mat-select formControlName="curso">
-        <mat-option *ngFor="let curso of cursos" [value]="{nombreCurso: curso.name}">
-          {{curso.id + "-" + curso.name}}
+      <mat-select formControlName="course">
+        <mat-option *ngFor="let course of courses" [value]="{courseName: course.name}">
+          {{course.id + "-" + course.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -48,19 +48,19 @@
 <form [formGroup]="formularioInscripcion" class="container text-center mt-4">
 
   <div class="col d-flex flex-column">
-    <label for="name" class="form-label fullname-container_text">Nombre</label>
-    <mat-select formControlName="alumno">
-      <mat-option *ngFor="let alumno of alumnos" [value]="{nombre: alumno.name, apellido:alumno.lastName}">
-        {{alumno.id + "-" + alumno.name + ' ' + alumno.lastName}}
+    <label for="name" class="form-label fullname-container_text">Student</label>
+    <mat-select formControlName="student">
+      <mat-option *ngFor="let student of alumnos" [value]="{name: student.name, apellido:student.lastName}">
+        {{student.id + "-" + student.name + ' ' + student.lastName}}
       </mat-option>
     </mat-select>
   </div>
 
   <div class="col d-flex flex-column">
-    <label for="detailsText" class="form-label fullname-container_text">detailsText</label>
-    <mat-select formControlName="curso">
-      <mat-option *ngFor="let curso of cursos" [value]="{nombreCurso: curso.name}">
-        {{curso.id + "-" + curso.name}}
+    <label for="detailsText" class="form-label fullname-container_text">Course</label>
+    <mat-select formControlName="course">
+      <mat-option *ngFor="let course of cursos" [value]="{courseName: course.name}">
+        {{course.id + "-" + course.name}}
       </mat-option>
     </mat-select>
   </div>
@@ -86,7 +86,7 @@
 
   <div class="d-flex form-control-added button-container">
     <button (click)="guardarInscripcion()" [mat-dialog-close]="formularioInscripcion.value"
-      [disabled]="formularioInscripcion.invalid" type="submit" class="btn btn-primary button-confirm">Confirm</button>
+      [disabled]="formularioInscripcion.invalid" type="submit" class="btn btn-primary button-confirm">Accept</button>
     <!-- <button (click)="closeWindow()" type="submit" class="btn btn-primary button-cancel">Cancel</button> -->
   </div>
 </form>

@@ -39,7 +39,7 @@ export class CoursesComponent implements OnInit {
 
     setTimeout(() => {
       this.spinnerLoading = false
-    }, 2500)
+    }, 2000)
   }
 
   clickAddCourse() {

@@ -1,17 +1,17 @@
-interface inscripAlumno {
+interface StudentSub {
   id: number,
-  nombre: string,
+  name: string,
   apellido: string,
 }
 
-interface inscripCurso {
+interface CourseSub {
   id: number,
-  nombreCurso: string,
+  courseName: string,
 }
 
 export interface Inscripciones {
   id: number;
-  alumno: inscripAlumno;
-  curso: inscripCurso;
+  student: StudentSub;
+  course: CourseSub;
 }
 

@@ -14,7 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class StudentsComponent implements OnInit {
-  public hover: number
+  public hover: number;
+  spinnerLoading = true
   public student$: Observable<Student[]>;
 
   displayedColumns = ['id', 'name', 'email', 'gender', 'edit', 'deleteOption']
@@ -27,6 +28,10 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.student$ = this.studentsService.students$
+
+    setTimeout(() => {
+      this.spinnerLoading = false
+    }, 2000)
   }
 
   //borrar estudiante

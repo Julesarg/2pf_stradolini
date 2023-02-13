@@ -53,11 +53,11 @@ export class AddInscriptionComponent implements OnInit, OnDestroy {
     this.getCursosList();
     this.formularioInscripcion = new FormGroup({
       alumno: new FormGroup({
-        nombre: new FormControl('', [Validators.required]),
+        name: new FormControl('', [Validators.required]),
         apellido: new FormControl('', [Validators.required])
       }),
       curso: new FormGroup({
-        nombreCurso: new FormControl('', [Validators.required]),
+        courseName: new FormControl('', [Validators.required]),
       }),
     });
   }
@@ -67,8 +67,8 @@ export class AddInscriptionComponent implements OnInit, OnDestroy {
 
     let incripcion: Inscripciones = {
       id: idAlumno + 1,
-      alumno: this.formularioInscripcion.value.alumno,
-      curso: this.formularioInscripcion.value.curso,
+      student: this.formularioInscripcion.value.student,
+      course: this.formularioInscripcion.value.course,
     }
     this.inscripciones.agregarInscripciones(incripcion).subscribe(() => this.router.navigate(['/inscriptions']));
   }
