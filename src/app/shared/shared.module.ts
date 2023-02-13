@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 import { CourseDetailComponent } from './dialogs-modals/course-detail/course-detail.component';
 import { Error404Module } from './errors/error404/error404.module';
 import { AddCourseComponent } from './dialogs-modals/add-course/add-course.component';
-
+import { AddInscriptionComponent } from './dialogs-modals/add-inscription/add-inscription.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { AddCourseComponent } from './dialogs-modals/add-course/add-course.compo
     AddCourseComponent,
     ModifyStudentComponent,
     CourseDetailComponent,
+    AddInscriptionComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +42,8 @@ import { AddCourseComponent } from './dialogs-modals/add-course/add-course.compo
     AddStudentComponent,
     AddCourseComponent,
     ModifyStudentComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    AddInscriptionComponent
   ]
 })
 export class SharedModule { }

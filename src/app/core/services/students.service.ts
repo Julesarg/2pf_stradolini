@@ -28,19 +28,6 @@ export class StudentsService {
     );
   }
 
-  ////funciones//////////
-
-  //agregar estudiante
-  // addStudent(newStudent: Student) {
-  //   this.students.pipe(take(1)).subscribe((students) => {
-  //     let lastId = students.length - 1
-  //     this.students.next([
-  //       ...students,
-  //       new Student(lastId + 1, newStudent.name, newStudent.lastName, newStudent.email, newStudent.gender, newStudent.edit, newStudent.deleteOption)
-  //     ])
-  //   })
-  // }
-
 
   addStudent(student: Student) {
     this.students$

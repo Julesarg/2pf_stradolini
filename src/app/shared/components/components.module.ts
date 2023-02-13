@@ -7,7 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutingModule } from '../../layouts/dashboard/dashboard-routing.module';
 import { GreenTextDirective } from '../../core/directives/greenText.directive';
-import { FullnamePipe } from 'src/app/core/pipes/fullname.pipe';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import { FullnamePipe } from 'src/app/core/pipes/fullname.pipe';
     PageWrapperComponent,
     SidebarComponent,
     GreenTextDirective,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +30,8 @@ import { FullnamePipe } from 'src/app/core/pipes/fullname.pipe';
     HeaderComponent,
     PageWrapperComponent,
     SidebarComponent,
-    GreenTextDirective
+    GreenTextDirective,
+    SpinnerComponent
   ]
 })
 export class ComponentsModule { }

@@ -6,7 +6,6 @@ import { Observable, map, mergeMap, of, tap, catchError } from 'rxjs';
 import { AppState } from 'src/app/store/app.reducer';
 import { LoginSuccessful, SingleUserResponse } from '../models/reqres.interfaces';
 import { User } from '../models/users.model';
-// import { SessionService } from './session.service';
 import { setAuthenticatedUser, unsetAuthenticatedUser } from '../../store/authentication/authentication.actions';
 
 @Injectable({
@@ -40,7 +39,6 @@ export class AuthService {
               data.avatar
             )
         ),
-        // tap((user) => this.sessionService.setUser(user))
         tap(
           (user) => this.store.dispatch(
             setAuthenticatedUser({
@@ -76,15 +74,6 @@ export class AuthService {
                 data.avatar
               )
           }))
-        // this.sessionService.setUser(
-        //   new User(
-        //     data.id,
-        //     data.email,
-        //     data.first_name,
-        //     data.last_name,
-        //     data.avatar
-        //   )
-        // )
       ),
       map((user) => !!user),
       catchError(() => of(false))

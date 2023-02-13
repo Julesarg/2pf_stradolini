@@ -1,6 +1,9 @@
-<div class="courses-container animate__animated animate__fadeIn">
+<div class="courses-container">
 
-  <table mat-table [dataSource]="course$" class=" mat-elevation-z8 table-container">
+  <app-spinner *ngIf="spinnerLoading" class="animate__animated animate__fadeIn"></app-spinner>
+
+  <table mat-table *ngIf="!spinnerLoading" [dataSource]="course$"
+    class=" mat-elevation-z8 table-container courses-container animate__animated animate__fadeIn">
 
     <ng-container matColumnDef="img">
       <th appFonts mat-header-cell *matHeaderCellDef class="table-container-column">
@@ -69,7 +72,7 @@
   </table>
 
   <div *ngIf="(user | async); else null" class="button-container">
-    <button (click)="clickAddCourse()" class="button-container_button">Add
+    <button *ngIf="!spinnerLoading" (click)="clickAddCourse()" class="button-container_button">Add
       Course</button>
   </div>
 

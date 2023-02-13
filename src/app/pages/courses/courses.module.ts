@@ -23,7 +23,7 @@ import { ClosedCourseDirective } from '../../core/directives/closedCourse.direct
     CoursesComponent,
     CoursesRoutingModule,
     OpenCourseDirective,
-    ClosedCourseDirective
+    ClosedCourseDirective,
   ]
 })
 export class CoursesModule { }

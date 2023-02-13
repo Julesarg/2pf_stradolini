@@ -39,7 +39,7 @@
         <a class="effect effect-5" [routerLink]="['/dashboard/inscriptions']"
           routerLinkActive="router-link-active">Inscripciones</a>
       </li>
-      <li class="button-effect">
+      <li *ngIf="(user | async); else null" class="button-effect">
         <a class="effect effect-5" [routerLink]="['/dashboard/users']" routerLinkActive="router-link-active">Users</a>
       </li>
     </ul>

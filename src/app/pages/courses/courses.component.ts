@@ -19,11 +19,13 @@ import { AppState } from 'src/app/store/app.reducer';
 
 export class CoursesComponent implements OnInit {
   public hover: number
+  spinnerLoading = true
   public course$: Observable<Course[]>;
   public user: Observable<User | null>;
 
   displayedColumns = ['img', 'name', 'inscriptions', 'duration', 'price', 'modality', 'deleteOption'];
   element: Course;
+  // esto va?
 
   constructor(
     private coursesService: CoursesService, public readonly authService: AuthService, private readonly dialogService: MatDialog, private readonly store: Store<AppState>
@@ -34,6 +36,10 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.course$ = this.coursesService.courses$
+
+    setTimeout(() => {
+      this.spinnerLoading = false
+    }, 2500)
   }
 
   clickAddCourse() {
