@@ -8,6 +8,8 @@ import { Student } from 'src/app/core/models/students.model';
 import { CoursesService } from 'src/app/core/services/courses.service';
 import { StudentsService } from '../../../core/services/students.service';
 import { InscriptionsService } from '../../../core/services/inscriptions.service';
+import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-inscription',
@@ -16,65 +18,75 @@ import { InscriptionsService } from '../../../core/services/inscriptions.service
 })
 export class AddInscriptionComponent implements OnInit, OnDestroy {
 
-  formularioInscripcion: FormGroup;
 
-  alumno!: Student;
-  alumnos!: Student[];
-  alumnoSubscription!: Subscription;
-  alumno$!: Observable<Student[]>;
 
-  curso$!: Observable<Course[]>;
-  cursosSub!: Subscription;
-  cursos!: Course[];
+  student!: Student;
+  students!: Student[];
+  studentSubscription!: Subscription;
+  student$!: Observable<Student[]>;
+  public inscription$: Observable<Inscripciones[]>;
+
+  course$!: Observable<Course[]>;
+  coursesSub!: Subscription;
+  courses!: Course[];
 
   constructor(
-    private router: Router,
-    private cursoService: CoursesService,
-    private alumnoService: StudentsService,
-    private inscripciones: InscriptionsService
-  ) { }
-
-  getAlumnosList() {
-    this.alumno$ = this.alumnoService.getstudentsFromAPI();
-    this.alumnoSubscription = this.alumno$.subscribe(
-      (alumnos: Student[]) => (this.alumnos = alumnos)
-    );
-  }
-
-  getCursosList() {
-    this.curso$ = this.cursoService.getCoursesFromAPI();
-    this.cursosSub = this.curso$.subscribe(
-      (curso: Course[]) => (this.cursos = curso)
-    );
+    private courseService: CoursesService,
+    private studentService: StudentsService,
+    private dialog: MatDialogRef<AddInscriptionComponent>,
+    private inscripciones: InscriptionsService,
+    private readonly dialogRef: DialogRef
+  ) {
+    dialog.disableClose = true
   }
 
   ngOnInit(): void {
     this.getAlumnosList();
     this.getCursosList();
-    this.formularioInscripcion = new FormGroup({
-      alumno: new FormGroup({
-        name: new FormControl('', [Validators.required]),
-        apellido: new FormControl('', [Validators.required])
-      }),
-      curso: new FormGroup({
-        courseName: new FormControl('', [Validators.required]),
-      }),
-    });
+    this.inscription$ = this.inscripciones.inscriptions$
   }
 
-  guardarInscripcion() {
-    let idAlumno: number = Math.max.apply(null, this.alumnos.map(o => o.id));
+  formularioInscripcion = new FormGroup({
+    student: new FormGroup({
+      name: new FormControl('', []),
+      lastName: new FormControl('', [])
+    }),
+    course: new FormGroup({
+      name: new FormControl('', []),
+    }),
+  });
 
-    let incripcion: Inscripciones = {
-      id: idAlumno + 1,
-      student: this.formularioInscripcion.value.student,
-      course: this.formularioInscripcion.value.course,
-    }
-    this.inscripciones.agregarInscripciones(incripcion).subscribe(() => this.router.navigate(['/inscriptions']));
+  // guardarInscripcion() {
+  //   let idAlumno: number = Math.max.apply(null, this.alumnos.map(o => o.id));
+
+  //   let incripcion: Inscripciones = {
+  //     id: idAlumno + 1,
+  //     student: this.formularioInscripcion.value.student,
+  //     course: this.formularioInscripcion.value.course,
+  //   }
+  //   this.inscripciones.agregarInscripciones(incripcion).subscribe(() => this.router.navigate(['/inscriptions']));
+  // }
+
+  getAlumnosList() {
+    this.student$ = this.studentService.getstudentsFromAPI();
+    this.studentSubscription = this.student$.subscribe(
+      (students: Student[]) => (this.students = students)
+    );
+  }
+
+  getCursosList() {
+    this.course$ = this.courseService.getCoursesFromAPI();
+    this.coursesSub = this.course$.subscribe(
+      (course: Course[]) => (this.courses = course)
+    );
   }
 
   ngOnDestroy() {
-    this.alumnoSubscription.unsubscribe();
-    this.cursosSub.unsubscribe();
+    this.studentSubscription.unsubscribe();
+    this.coursesSub.unsubscribe();
+  }
+
+  closeWindow() {
+    this.dialogRef.close()
   }
 }

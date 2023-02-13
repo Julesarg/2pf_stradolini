@@ -72,7 +72,7 @@ export class InscriptionsComponent implements OnInit, OnDestroy {
     })
   }
 
-  clickAddCourse() {
+  clickAddInscription() {
     const dialog = this.dialogService.open(AddInscriptionComponent)
     dialog.afterClosed().subscribe((data) => {
       if (data) {

@@ -1,92 +1,32 @@
-<!-- <form [formGroup]="formularioInscripcion" class="form">
-  <div class="mb-2">
-    <mat-form-field appearance="fill">
-      <mat-label>Codigo de Inscripcion</mat-label>
-      <input formControlName="codigo" matInput>
-      <small
-        *ngIf="formularioInscripcion.get('codigo')?.errors?.['required'] && formularioInscripcion.get('codigo')?.touched"
-        class="text-danger">Campo
-        requerido</small>
-    </mat-form-field>
-  </div>
+<form [formGroup]="formularioInscripcion" class="form">
+
   <div class="mb-2">
     <mat-form-field appearance="fill">
       <mat-label>Select Alumno</mat-label>
       <mat-select formControlName="student">
-        <mat-option *ngFor="let student of students" [value]="{name: student.name, apellido:student.lastName}">
+        <mat-option *ngFor="let student of students" [value]="{name: student.name, lastName:student.lastName}">
           {{student.id + "-" + student.name + ' ' + student.lastName}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-  </div> 
-   <div class="mb-2">
+  </div>
+  <div class="mb-2">
     <mat-form-field appearance="fill">
       <mat-label>Select Curso</mat-label>
       <mat-select formControlName="course">
-        <mat-option *ngFor="let course of courses" [value]="{courseName: course.name}">
+        <mat-option *ngFor="let course of courses" [value]="{name: course.name}">
           {{course.id + "-" + course.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-  </div> 
-   <div class="mb-2">
-    <mat-form-field appearance="fill">
-      <mat-label>Fecha De Inscripcion</mat-label>
-      <input formControlName="fecha" matInput [matDatepicker]="picker">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </div> 
-   <button mat-raised-button color="primary" [disabled]="formularioInscripcion.invalid">Submit</button>
-</form> -->
-
-
-
-<div mat-dialog-title>Add Course</div>
-
-<form [formGroup]="formularioInscripcion" class="container text-center mt-4">
-
-  <div class="col d-flex flex-column">
-    <label for="name" class="form-label fullname-container_text">Student</label>
-    <mat-select formControlName="student">
-      <mat-option *ngFor="let student of alumnos" [value]="{name: student.name, apellido:student.lastName}">
-        {{student.id + "-" + student.name + ' ' + student.lastName}}
-      </mat-option>
-    </mat-select>
   </div>
-
-  <div class="col d-flex flex-column">
-    <label for="detailsText" class="form-label fullname-container_text">Course</label>
-    <mat-select formControlName="course">
-      <mat-option *ngFor="let course of cursos" [value]="{courseName: course.name}">
-        {{course.id + "-" + course.name}}
-      </mat-option>
-    </mat-select>
-  </div>
-
-  <!-- <div class="col d-flex flex-column">
-    <label for="codigo" class="form-label fullname-container_text">codigo</label>
-    <input formControlName="codigo" matInput>
-    <small
-      *ngIf="formularioInscripcion.get('codigo')?.errors?.['required'] && formularioInscripcion.get('codigo')?.touched"
-      class="text-danger">Campo
-      requerido</small>
-  </div> -->
-
-  <!-- <div class="d-flex form-control-added">
-    <div class="col d-flex flex-column justify-content-start align-items-start">
-      <label for="inscriptions" class="form-label">Date</label>
-      <input formControlName="fecha" matInput [matDatepicker]="picker">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </div>
-  </div> -->
 
   <div class="d-flex form-control-added button-container">
-    <button (click)="guardarInscripcion()" [mat-dialog-close]="formularioInscripcion.value"
-      [disabled]="formularioInscripcion.invalid" type="submit" class="btn btn-primary button-confirm">Accept</button>
-    <!-- <button (click)="closeWindow()" type="submit" class="btn btn-primary button-cancel">Cancel</button> -->
+    <button [mat-dialog-close]="formularioInscripcion.value" [disabled]="formularioInscripcion.invalid" type="submit"
+      class="btn btn-primary button-confirm">BOTON1</button>
+    <button (click)="closeWindow()" type="submit" class="btn btn-primary button-cancel">Cancel</button>
   </div>
+
+  <button [mat-dialog-close]="formularioInscripcion.value" mat-raised-button color="primary" type="submit"
+    [disabled]="formularioInscripcion.invalid">BOTON2</button>
 </form>

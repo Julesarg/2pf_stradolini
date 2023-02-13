@@ -24,8 +24,11 @@ export class AddStudentComponent {
     this.student$ = this.studentsService.students$
   }
 
-  constructor(private readonly dialogRef: DialogRef, private dialog: MatDialogRef<AddStudentComponent>, private studentsService: StudentsService, @Inject(MAT_DIALOG_DATA) public data: Student | null) {
-    dialog.disableClose = true;
+  constructor(
+    private readonly dialogRef: DialogRef,
+    private dialog: MatDialogRef<AddStudentComponent>,
+    private studentsService: StudentsService) {
+    dialog.disableClose = true
   }
 
   nameControl = new FormControl('', [
