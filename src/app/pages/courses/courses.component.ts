@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../../core/models/courses.model';
 import { CoursesService } from 'src/app/core/services/courses.service';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCourseComponent } from 'src/app/shared/dialogs-modals/add-course/add-course.component';
 import { User } from 'src/app/core/models/users.model';
@@ -24,11 +23,9 @@ export class CoursesComponent implements OnInit {
   public user: Observable<User | null>;
 
   displayedColumns = ['img', 'name', 'inscriptions', 'duration', 'price', 'modality', 'deleteOption'];
-  element: Course;
-  // esto va?
 
   constructor(
-    private coursesService: CoursesService, public readonly authService: AuthService, private readonly dialogService: MatDialog, private readonly store: Store<AppState>
+    private coursesService: CoursesService, private readonly dialogService: MatDialog, private readonly store: Store<AppState>
   ) {
     this.user = this.store.select(authenticatedUserSelector)
   }

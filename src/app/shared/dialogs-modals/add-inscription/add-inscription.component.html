@@ -1,5 +1,4 @@
 <form [formGroup]="formularioInscripcion" class="form">
-
   <div class="mb-2">
     <mat-form-field appearance="fill">
       <mat-label>Select Alumno</mat-label>
@@ -20,13 +19,9 @@
       </mat-select>
     </mat-form-field>
   </div>
-
   <div class="d-flex form-control-added button-container">
     <button [mat-dialog-close]="formularioInscripcion.value" [disabled]="formularioInscripcion.invalid" type="submit"
       class="btn btn-primary button-confirm">BOTON1</button>
     <button (click)="closeWindow()" type="submit" class="btn btn-primary button-cancel">Cancel</button>
   </div>
-
-  <button [mat-dialog-close]="formularioInscripcion.value" mat-raised-button color="primary" type="submit"
-    [disabled]="formularioInscripcion.invalid">BOTON2</button>
 </form>

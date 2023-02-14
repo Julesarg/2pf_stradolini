@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
@@ -24,39 +21,29 @@ export class AddCourseComponent {
     dialog.disableClose = true;
   }
 
-  //ok
   nameControl = new FormControl('', [
     Validators.required,
     Validators.minLength(5),
   ]);
-  //ok
   priceControl = new FormControl('', [
     Validators.required,
   ]);
-  //ok
   modalityControl = new FormControl('', [
     Validators.required,
   ]);
-  //ok
   inscriptionsControl = new FormControl('', [
     Validators.required,
   ]);
-  //ok
   durationControl = new FormControl('', [
     Validators.required,
   ]);
-
-  //ok
   detailsTextControl = new FormControl('', [
     Validators.required,
     Validators.minLength(20),
   ]);
-
-  //ok
   imgControl = new FormControl('', [
     Validators.required,
   ])
-
 
   registerCourse = new FormGroup({
     name: this.nameControl,

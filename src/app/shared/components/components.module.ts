@@ -30,7 +30,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     HeaderComponent,
     PageWrapperComponent,
     SidebarComponent,
-    GreenTextDirective,
     SpinnerComponent
   ]
 })

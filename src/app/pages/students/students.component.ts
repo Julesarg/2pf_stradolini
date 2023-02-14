@@ -19,7 +19,6 @@ export class StudentsComponent implements OnInit {
   public student$: Observable<Student[]>;
 
   displayedColumns = ['id', 'name', 'email', 'gender', 'edit', 'deleteOption']
-  element: Student;
 
   constructor(
     private studentsService: StudentsService,
@@ -34,12 +33,10 @@ export class StudentsComponent implements OnInit {
     }, 2000)
   }
 
-  //borrar estudiante
   clickDeleteStudent(student: Student) {
     this.studentsService.deleteStudent(student)
   }
 
-  //editar estudiante
   clickEditStudent(student: Student) {
     this.studentsService.editStudent(student)
   }

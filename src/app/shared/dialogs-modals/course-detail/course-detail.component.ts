@@ -16,6 +16,4 @@ export class CourseDetailComponent {
   closeWindow() {
     this.dialogRef.close()
   }
-
-
 }

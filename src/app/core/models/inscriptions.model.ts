@@ -6,10 +6,10 @@ interface Student {
 
 interface Course {
   id: number,
-  courseName: string,
+  name: string,
 }
 
-export interface Inscripciones {
+export interface Inscription {
   id: number;
   student: Student;
   course: Course;

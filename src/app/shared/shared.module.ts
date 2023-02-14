@@ -17,8 +17,8 @@ import { AddInscriptionComponent } from './dialogs-modals/add-inscription/add-in
 @NgModule({
   declarations: [
     FontsDirective,
-    AddStudentErrorsComponent,
     FullnamePipe,
+    AddStudentErrorsComponent,
     AddStudentComponent,
     AddCourseComponent,
     ModifyStudentComponent,

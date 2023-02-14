@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Course } from 'src/app/core/models/courses.model';
-import { Inscripciones } from 'src/app/core/models/inscriptions.model';
+import { Inscription } from 'src/app/core/models/inscriptions.model';
 import { Student } from 'src/app/core/models/students.model';
 import { CoursesService } from 'src/app/core/services/courses.service';
 import { StudentsService } from '../../../core/services/students.service';
@@ -18,31 +17,28 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddInscriptionComponent implements OnInit, OnDestroy {
 
-
-
   student!: Student;
   students!: Student[];
   studentSubscription!: Subscription;
   student$!: Observable<Student[]>;
-  public inscription$: Observable<Inscripciones[]>;
-
   course$!: Observable<Course[]>;
   coursesSub!: Subscription;
   courses!: Course[];
+
+  public inscription$: Observable<Inscription[]>;
 
   constructor(
     private courseService: CoursesService,
     private studentService: StudentsService,
     private dialog: MatDialogRef<AddInscriptionComponent>,
     private inscripciones: InscriptionsService,
-    private readonly dialogRef: DialogRef
-  ) {
+    private readonly dialogRef: DialogRef) {
     dialog.disableClose = true
   }
 
   ngOnInit(): void {
-    this.getAlumnosList();
-    this.getCursosList();
+    this.getStudentsList();
+    this.getCoursesList();
     this.inscription$ = this.inscripciones.inscriptions$
   }
 
@@ -56,28 +52,18 @@ export class AddInscriptionComponent implements OnInit, OnDestroy {
     }),
   });
 
-  // guardarInscripcion() {
-  //   let idAlumno: number = Math.max.apply(null, this.alumnos.map(o => o.id));
-
-  //   let incripcion: Inscripciones = {
-  //     id: idAlumno + 1,
-  //     student: this.formularioInscripcion.value.student,
-  //     course: this.formularioInscripcion.value.course,
-  //   }
-  //   this.inscripciones.agregarInscripciones(incripcion).subscribe(() => this.router.navigate(['/inscriptions']));
-  // }
-
-  getAlumnosList() {
+  getStudentsList() {
     this.student$ = this.studentService.getstudentsFromAPI();
     this.studentSubscription = this.student$.subscribe(
       (students: Student[]) => (this.students = students)
     );
   }
 
-  getCursosList() {
+  getCoursesList() {
     this.course$ = this.courseService.getCoursesFromAPI();
     this.coursesSub = this.course$.subscribe(
-      (course: Course[]) => (this.courses = course)
+      (course: Course[]) => (this.courses
+        = course)
     );
   }
 

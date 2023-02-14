@@ -25,21 +25,6 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(`${this.baseURL}/courses`)
   }
 
-
-  ////funciones//////////
-
-  //agregar curso
-  // addCourse(newCourseData: Omit<Course, 'id' | 'active'>): void {
-  //   this.courses.pipe(take(1)).subscribe((courses) => {
-  //     const lastId = courses[courses.length - 1]?.id || 0;
-  //     this.courses.next([
-  //       ...courses,
-  //       new Course(lastId + 1, newCourseData.name, newCourseData.duration, newCourseData.price, newCourseData.modality, newCourseData.inscriptions, newCourseData.detailsIcon, newCourseData.detailsText, newCourseData.deleteOption, newCourseData.img)
-  //     ])
-  //   })
-  // }
-
-
   addCourse(course: Course) {
     this.courses$
       .pipe(
@@ -60,8 +45,6 @@ export class CoursesService {
       .subscribe()
   }
 
-
-  //borrar curso
   deleteCourse(course: Course) {
     this.httpClient
       .delete(

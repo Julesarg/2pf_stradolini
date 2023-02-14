@@ -1,12 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {
-  FormControl,
-  Validators,
-  AbstractControl,
-} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Student } from 'src/app/core/models/students.model';
 import { Observable } from 'rxjs';
 import { StudentsService } from 'src/app/core/services/students.service';
@@ -17,8 +13,8 @@ import { StudentsService } from 'src/app/core/services/students.service';
   styleUrls: ['./add-student.component.scss'],
 })
 export class AddStudentComponent {
+
   public student$: Observable<Student[]>;
-  element: Student;
 
   ngOnInit(): void {
     this.student$ = this.studentsService.students$
@@ -58,4 +54,3 @@ export class AddStudentComponent {
     this.dialogRef.close()
   }
 }
-

@@ -21,7 +21,6 @@ export class UsersComponent implements OnInit {
 
   constructor(public usersService: UsersService, private store: Store) { }
   ngOnInit(): void {
-    // this.usersService.loadUsers()
     this.store.dispatch(loadUsers({ page: 1, per_page: 4 }))
     this.store.select(selectUsersArray).subscribe((usuarios) => {
       this.userslist = usuarios
