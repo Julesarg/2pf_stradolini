@@ -19,7 +19,7 @@ export class InscriptionsComponent implements OnInit, OnDestroy {
   inscriptions: Inscription[];
   inscriptionSubs: Subscription;
 
-  displayedColumns: string[] = ['id', 'student', 'course', 'delete'];
+  displayedColumns: string[] = ['student', 'course', 'delete'];
 
   constructor(
     private inscriptionsService: InscriptionsService,

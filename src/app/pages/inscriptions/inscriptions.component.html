@@ -3,13 +3,6 @@
 <table *ngIf="!spinnerLoading" mat-table [dataSource]="inscription$"
   class="mat-elevation-z8 demo-table animate__animated animate__fadeIn">
 
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
-
-
   <ng-container matColumnDef="student">
     <th mat-header-cell *matHeaderCellDef> Students </th>
     <td mat-cell *matCellDef="let element">{{element.student.name + ' ' +
