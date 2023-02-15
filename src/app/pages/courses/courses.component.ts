@@ -63,7 +63,6 @@ export class CoursesComponent implements OnInit {
     this.coursesService.viewCourseDetail(course)
   }
 
-  //borrar estudiante
   clickDeleteCourse(course: Course) {
     this.coursesService.deleteCourse(course)
   }

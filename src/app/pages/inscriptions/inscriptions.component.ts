@@ -11,7 +11,7 @@ import { AddInscriptionComponent } from '../../shared/dialogs-modals/add-inscrip
   templateUrl: './inscriptions.component.html',
   styleUrls: ['./inscriptions.component.scss']
 })
-export class InscriptionsComponent implements OnInit, OnDestroy {
+export class InscriptionsComponent implements OnInit {
 
   spinnerLoading = true
   inscription$: Observable<Inscription[]>
@@ -28,18 +28,11 @@ export class InscriptionsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.inscription$ = this.inscriptionsService.getInscriptionsFromApi();
-    this.inscriptionSubs = this.inscription$.subscribe((inscription: Inscription[]) => {
-      this.inscriptions = inscription
+    this.inscription$ = this.inscriptionsService.inscriptions$
 
-      setTimeout(() => {
-        this.spinnerLoading = false
-      }, 2000)
-    })
-  }
-
-  ngOnDestroy(): void {
-    this.inscriptionSubs.unsubscribe();
+    setTimeout(() => {
+      this.spinnerLoading = false
+    }, 2000)
   }
 
   clickDeleteInscription(element: Inscription) {
@@ -47,6 +40,11 @@ export class InscriptionsComponent implements OnInit, OnDestroy {
       this.inscription$ = this.inscriptionsService.getInscriptionsFromApi();
     })
   }
+
+  // clickDeleteInscription(element: Inscription) {
+  //   this.inscriptionsService.deleteInscription(element).subscribe()
+  // }
+
 
   clickAddInscription() {
     const dialog = this.dialogService.open(AddInscriptionComponent)
@@ -60,4 +58,5 @@ export class InscriptionsComponent implements OnInit, OnDestroy {
       }
     })
   }
+
 }
